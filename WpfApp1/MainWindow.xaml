@@ -1,0 +1,70 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Cinémania - 0.1a" Height="400" Width="700">
+
+    <DockPanel LastChildFill="True">
+        <Border DockPanel.Dock="Top" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
+            <TextBlock TextAlignment="Center" Padding="6" Background="#f1c454">😡 Cinémania 😡</TextBlock>
+        </Border>
+
+        <Border DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,4,0">
+            <StackPanel Background="#1e2a2d" Width="200" HorizontalAlignment="Left">
+                <DockPanel Margin="0,0,0,5">
+                    <Ellipse DockPanel.Dock="Left" Width="50" Height="50">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="C:\Users\calip\Downloads\porg.jpg"></ImageBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <Label FontSize="15" Margin="8" DockPanel.Dock="Right" Content="Bienvenue MFS" Foreground="#f1c454" Width="131" />
+                </DockPanel>
+
+                <Border Padding="5" Margin="0,0,0,5" DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
+                    <StackPanel>
+                        <Button Margin="3" Content="Mon compte"/>
+                        <Button Margin="3" Content="Mes favoris"/>
+                        <Button Margin="3" Content="Déconnexion"/>
+                    </StackPanel>
+                </Border>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0">🔍</TextBlock>
+                    <TextBox Margin="0,0,0,20" Grid.Column="1">Rechercher un film</TextBox>
+
+                    <Button Grid.Row="1" Grid.ColumnSpan="2" Margin="3">Bandes annonces</Button>
+                    <Button Grid.Row="2" Grid.ColumnSpan="2" Margin="3">Meilleurs films</Button>
+                    <Button Grid.Row="3" Grid.ColumnSpan="2" Margin="3">Prochainement</Button>
+                    <Button Grid.Row="4" Grid.ColumnSpan="2" Margin="3">Catégories</Button>
+                </Grid>
+
+            </StackPanel>
+        </Border>
+
+        <DockPanel Background="#eeeeee">
+            <ScrollBar DockPanel.Dock="Right" HorizontalAlignment="Right"></ScrollBar>
+
+            <Border BorderBrush="Black" BorderThickness="2">
+                <Rectangle DockPanel.Dock="Top" VerticalAlignment="Top" Margin="0,20,0,20" Fill="Black" Width="400" Height="175"></Rectangle>
+            </Border>
+
+        </DockPanel>
+    </DockPanel>
+</Window>
