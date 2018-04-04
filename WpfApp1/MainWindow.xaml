@@ -5,7 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Cinémania - 0.1a" Height="400" Width="700">
+        Title="Cinémania - 0.1a" Height="475" Width="700">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#373737" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Height" Value="30" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Path Name="Icône" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="14,0,0,0" Data="F1 M 30.1, 22.17 50.67, 37.60 50.66, 38.8 30.1, 53.83 30.1, 22.17"/>
+                                <ContentPresenter Name="Nom" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E59400" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="Icône" Property="Fill" Value="Black" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="OrangeRed" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <DockPanel LastChildFill="True">
         <Border DockPanel.Dock="Top" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
@@ -14,10 +50,10 @@
 
         <Border DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,4,0">
             <StackPanel Background="#1e2a2d" Width="200" HorizontalAlignment="Left">
-                <DockPanel Margin="0,0,0,5">
+                <DockPanel Margin="5,5,0,5">
                     <Ellipse DockPanel.Dock="Left" Width="50" Height="50">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="C:\Users\calip\Downloads\porg.jpg"></ImageBrush>
+                            <ImageBrush ImageSource="{Binding SourceUri}"></ImageBrush>
                         </Ellipse.Fill>
                     </Ellipse>
 
@@ -26,9 +62,9 @@
 
                 <Border Padding="5" Margin="0,0,0,5" DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
                     <StackPanel>
-                        <Button Margin="3" Content="Mon compte"/>
-                        <Button Margin="3" Content="Mes favoris"/>
-                        <Button Margin="3" Content="Déconnexion"/>
+                        <Button Content="Mon compte"/>
+                        <Button Content="Mes favoris"/>
+                        <Button Content="Déconnexion"/>
                     </StackPanel>
                 </Border>
 
@@ -47,12 +83,12 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Column="0">🔍</TextBlock>
-                    <TextBox Margin="0,0,0,20" Grid.Column="1">Rechercher un film</TextBox>
+                    <TextBox Grid.Column="1" Margin="0,0,0,20">Rechercher un film</TextBox>
 
-                    <Button Grid.Row="1" Grid.ColumnSpan="2" Margin="3">Bandes annonces</Button>
-                    <Button Grid.Row="2" Grid.ColumnSpan="2" Margin="3">Meilleurs films</Button>
-                    <Button Grid.Row="3" Grid.ColumnSpan="2" Margin="3">Prochainement</Button>
-                    <Button Grid.Row="4" Grid.ColumnSpan="2" Margin="3">Catégories</Button>
+                    <Button Grid.Row="1" Grid.ColumnSpan="2">Bandes annonces</Button>
+                    <Button Grid.Row="2" Grid.ColumnSpan="2">Meilleurs films</Button>
+                    <Button Grid.Row="3" Grid.ColumnSpan="2">Prochainement</Button>
+                    <Button Grid.Row="4" Grid.ColumnSpan="2">Catégories</Button>
                 </Grid>
 
             </StackPanel>
