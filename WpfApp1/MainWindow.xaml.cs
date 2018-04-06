@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace Styles
 {
-    /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public Utilisateur MFS { get; }

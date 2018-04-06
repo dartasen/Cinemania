@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Controls
 {
-    /// <summary>
-    /// Logique d'interaction pour UserControl1.xaml
-    /// </summary>
     public partial class Login : UserControl
     {
         public Login()
