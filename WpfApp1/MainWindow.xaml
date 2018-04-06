@@ -1,14 +1,14 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+﻿<Window x:Class="Styles.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:Styles"
         mc:Ignorable="d"
         Title="Cinémania - 0.1a" Height="475" Width="700">
 
     <Window.Resources>
-        <Style TargetType="{x:Type Button}">
+        <Style TargetType="Button">
             <Setter Property="Background" Value="#373737" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="15" />
@@ -50,45 +50,49 @@
 
         <Border DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,4,0">
             <StackPanel Background="#1e2a2d" Width="200" HorizontalAlignment="Left">
-                <DockPanel Margin="5,5,0,5">
-                    <Ellipse DockPanel.Dock="Left" Width="50" Height="50">
+                
+                <StackPanel Margin="5,5,0,5" Orientation="Horizontal">
+                    <Ellipse Width="50" Height="50">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="{Binding SourceUri}"></ImageBrush>
+                            <ImageBrush ImageSource="C:\Users\calip\Downloads\porg.jpg" />
                         </Ellipse.Fill>
                     </Ellipse>
 
-                    <Label FontSize="15" Margin="8" DockPanel.Dock="Right" Content="Bienvenue MFS" Foreground="#f1c454" Width="131" />
-                </DockPanel>
+                    <Label FontSize="15" Margin="8" ContentStringFormat="Bienvenue {0}" Content="{Binding MFS}" Foreground="#f1c454" Width="130" />
+                </StackPanel>
 
                 <Border Padding="5" Margin="0,0,0,5" DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
                     <StackPanel>
-                        <Button Content="Mon compte"/>
+                        <Button Click="Button_Click" Content="Mon compte"/>
                         <Button Content="Mes favoris"/>
                         <Button Content="Déconnexion"/>
                     </StackPanel>
                 </Border>
 
+                <Border Padding="5" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBox></TextBox>
+                    </Grid>
+                </Border>
+
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="8*"/>
-                    </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
-                        <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="0">🔍</TextBlock>
-                    <TextBox Grid.Column="1" Margin="0,0,0,20">Rechercher un film</TextBox>
-
-                    <Button Grid.Row="1" Grid.ColumnSpan="2">Bandes annonces</Button>
-                    <Button Grid.Row="2" Grid.ColumnSpan="2">Meilleurs films</Button>
-                    <Button Grid.Row="3" Grid.ColumnSpan="2">Prochainement</Button>
-                    <Button Grid.Row="4" Grid.ColumnSpan="2">Catégories</Button>
+                    <Button Grid.Row="0">Bandes annonces</Button>
+                    <Button Grid.Row="1">Meilleurs films</Button>
+                    <Button Grid.Row="2">Prochainement</Button>
+                    <Button Grid.Row="3">Catégories</Button>
                 </Grid>
 
             </StackPanel>

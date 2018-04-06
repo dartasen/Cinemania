@@ -1,6 +1,4 @@
-﻿using Controls;
-using Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,27 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Styles
+namespace Controls
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour UserControl1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : UserControl
     {
-        public Utilisateur MFS { get; }
-
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
-            DataContext = this;
-
-            MFS = new Utilisateur("MF", "S", "12345");
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new Login();
-        }
-        
     }
 }

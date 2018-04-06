@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Diagnostics;
 
 namespace WpfApp1
 {
@@ -14,6 +15,6 @@ namespace WpfApp1
     /// </summary>
     public partial class App : Application
     {
-        public string SourceUri => Path.Combine(Directory.GetCurrentDirectory(), "Images/porg.jpg");
+        
     }
 }
