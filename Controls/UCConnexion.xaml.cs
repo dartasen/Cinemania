@@ -15,11 +15,17 @@ using System.Windows.Shapes;
 
 namespace Controls
 {
-    public partial class Login : UserControl
+    public partial class UCConnexion : UserControl
     {
-        public Login()
+        public ICommand cmd { get; set; }
+        public Window Parent { get; set; }
+
+        public UCConnexion()
         {
             InitializeComponent();
+            DataContext = this;
+
+            cmd = new CMD_Login();
         }
     }
 }
