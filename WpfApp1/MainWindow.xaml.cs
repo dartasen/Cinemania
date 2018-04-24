@@ -16,10 +16,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Styles
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public Utilisateur MFS { get; }
         public Control UC { get; set; }
