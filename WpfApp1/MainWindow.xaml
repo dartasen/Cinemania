@@ -33,24 +33,21 @@
             <Setter Property="Background" Value="#373737" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="15" />
-            <Setter Property="Margin" Value="3" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Padding" Value="40" />
             <Setter Property="Height" Value="30" />
 
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="4" Background="{TemplateBinding Background}">
-                            <Grid>
-                                <Path Name="Icône" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="14,0,0,0" Data="F1 M 30.1, 22.17 50.67, 37.60 50.66, 38.8 30.1, 53.83 30.1, 22.17"/>
-                                <ContentPresenter Name="Nom" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
-                            </Grid>
+                            <ContentPresenter Name="Nom" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#E59400" />
                                 <Setter Property="Foreground" Value="White" />
-                                <Setter TargetName="Icône" Property="Fill" Value="Black" />
                             </Trigger>
 
                             <Trigger Property="IsPressed" Value="True">
@@ -71,10 +68,9 @@
                 
                 <StackPanel Margin="5,5,0,5" Orientation="Horizontal">
                     <Ellipse Width="50" Height="50">
-                        <Ellipse.Fill>
-                           <!--<ImageBrush ImageSource="C:\Users\calip\Downloads\porg.jpg" />-->
-                            <DrawingBrush></DrawingBrush>
-                        </Ellipse.Fill>
+                        <Ellipse.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_cupcake}" Stretch="Fill" />
+                        </Ellipse.OpacityMask>
                     </Ellipse>
 
                     <Label FontSize="15" Margin="8" ContentStringFormat="Bienvenue {0}" Content="{Binding MFS}" Foreground="#f1c454" Width="130" />
@@ -122,9 +118,7 @@
 
                     <StackPanel>
                         <Rectangle Fill="White" Height="100" Width="50"/>
-                        <TextBlock>Perdu dans l'espace
-                                 Test
-                        </TextBlock>
+                        <TextBox>Perdu dans l'espace</TextBox>
                         <Rectangle Fill="Black">
                             <Rectangle.OpacityMask>
                                 <VisualBrush Visual="{StaticResource appbar_star}" Stretch="Fill" />
