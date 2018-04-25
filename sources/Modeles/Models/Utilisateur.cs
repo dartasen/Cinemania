@@ -2,32 +2,34 @@
 {
     public class Utilisateur
     {
-        public string nom { get; }
-        public string prenom { get; }
-        public string mdp { get; }
-        public bool isAdmin { get; }
-        public bool isLogged { get; set; }
+        public static int Id = 0;
+        public string Nom { get; }
+        public string Prenom { get; }
+        public string Password { get; }
+        public bool IsAdmin { get; }
+        public bool IsLogged { get; set; }
 
         public Utilisateur(string nom, string prenom, string mdp)
         {
-            this.nom = nom;
-            this.prenom = prenom;
-            this.mdp = mdp;
+            Nom = nom;
+            Prenom = prenom;
+            Password = mdp;
+            Id++;
         }
 
-        public void login()
+        public void Login()
         {
-            isLogged = true;
+            IsLogged = true;
         }
 
-        public void logout()
+        public void Logout()
         {
-            isLogged = false;
+            IsLogged = false;
         }
 
         public override string ToString()
         {
-            return $"{nom} {prenom}";
+            return $"{Nom} {Prenom}";
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Diagnostics;
 
-namespace WpfApp1
+namespace Styles
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml
