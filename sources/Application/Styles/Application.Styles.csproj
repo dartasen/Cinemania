@@ -92,6 +92,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageSwitcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -120,6 +121,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Modeles\Interfaces\Modeles.Interfaces.csproj">
+      <Project>{2b675900-3d53-43b4-9b3c-b784a6af45bb}</Project>
+      <Name>Modeles.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\Controls\Services.Controls.csproj">
       <Project>{6505f59c-6464-4593-8952-54f13805631b}</Project>
       <Name>Services.Controls</Name>

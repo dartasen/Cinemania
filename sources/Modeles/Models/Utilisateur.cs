@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using System.Data.SQLite.Linq;
+
+namespace Models
 {
     public class Utilisateur
     {

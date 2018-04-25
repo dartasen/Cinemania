@@ -4,10 +4,8 @@ using System.IO;
 
 namespace managers
 {
-
     public class StockageBDD
     {
-        private const string DatabaseSource = "data source=" + DatabaseFile;
         private const string DatabaseFile = "db.sqlite";
         private SQLiteConnection db;
 
@@ -16,8 +14,9 @@ namespace managers
             if (!File.Exists(DatabaseFile))
             {
                 SQLiteConnection.CreateFile(DatabaseFile);
-                db = new SQLiteConnection(DatabaseSource);
             }
+
+            db = new SQLiteConnection("data source=" + DatabaseFile);
         }
 
         public void Query(String command)

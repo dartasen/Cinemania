@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Controls;
+using Interfaces;
 using MahApps.Metro.Controls;
 using managers;
 using Models;
@@ -30,6 +31,22 @@ namespace Styles
         {
             UC = new UCMenu();
         }
-        
+
+        public void Navigate(UserControl nextPage)
+        {
+            this.Content = nextPage;
+        }
+
+        public void Navigate(UserControl nextPage, object state)
+        {
+            this.Content = nextPage;
+            ISwitch s = nextPage as ISwitch;
+
+            if (s != null)
+                s.UtilizeState(state);
+            else
+                throw new ArgumentException("NextPage is not ISwitchable! "+ nextPage.Name.ToString());
+        }
+
     }
 }
