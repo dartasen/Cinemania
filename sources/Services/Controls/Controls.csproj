@@ -49,7 +49,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CMD_Login.cs" />
     <Compile Include="UCMenu.xaml.cs">
       <DependentUpon>UCMenu.xaml</DependentUpon>
     </Compile>
@@ -88,6 +87,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Commands\Commands.csproj">
+      <Project>{f8b5713e-783a-4294-b432-b950cdde62b9}</Project>
+      <Name>Commands</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

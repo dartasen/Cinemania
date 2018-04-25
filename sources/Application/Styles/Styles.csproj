@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6ABE378B-7B8B-48D7-B94F-3F7F9BB2D916}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Styles</RootNamespace>
+    <RootNamespace>Application\Styles</RootNamespace>
     <AssemblyName>Styles</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -39,17 +39,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+      <HintPath>..\..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.6.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.6.1\lib\net45\MahApps.Metro.dll</HintPath>
+      <HintPath>..\..\packages\MahApps.Metro.1.6.1\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
@@ -120,13 +120,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controls\Controls.csproj">
+    <ProjectReference Include="..\..\Controls\Controls.csproj">
       <Project>{6505f59c-6464-4593-8952-54f13805631b}</Project>
       <Name>Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
+    <ProjectReference Include="..\..\Models\Models.csproj">
       <Project>{7336bac7-2ab0-431f-83c1-7cfa66fbb69a}</Project>
       <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Commands\Commands.csproj">
+      <Project>{f8b5713e-783a-4294-b432-b950cdde62b9}</Project>
+      <Name>Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Stockage\interfaces\interfaces.csproj">
+      <Project>{d1505f42-e1af-47fe-9f3e-371feae4678f}</Project>
+      <Name>interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
