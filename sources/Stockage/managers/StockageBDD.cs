@@ -16,7 +16,7 @@ namespace managers
                 SQLiteConnection.CreateFile(DatabaseFile);
             }
 
-            db = new SQLiteConnection("data source=" + DatabaseFile);
+            db = new SQLiteConnection("Data Source=" + DatabaseFile + ";Version=3;");
         }
 
         public void Query(String command)

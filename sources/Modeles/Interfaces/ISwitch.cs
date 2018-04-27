@@ -1,7 +1,11 @@
-﻿namespace Interfaces
+﻿using System.Windows;
+using System;
+using System.Windows.Controls;
+
+namespace Interfaces
 {
     public interface ISwitch
     {
-        void UtilizeState(object state);
+        void Switch(UserControl uc);
     }
 }
