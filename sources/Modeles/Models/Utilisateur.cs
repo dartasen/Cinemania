@@ -1,15 +1,26 @@
-﻿using System.Data.SQLite.Linq;
-using System.Linq;
+﻿using SQLite;
 
 namespace Models
 {
+    [Table("Utilisateur")]
     public class Utilisateur
     {
-        public static int Id = 0;
+        [PrimaryKey, AutoIncrement, Column("id")]
+        public int Id { get; private set; }
+
+        [Column("nom"), NotNull, MaxLength(30)]
         public string Nom { get; private set; }
+
+        [Column("prenom"), NotNull, MaxLength(30)]
         public string Prenom { get; private set; }
+
+        [Column("password"), NotNull, MaxLength(20)]
         public string Password { get; private set; }
+
+        [Column("isAdmin")]
         public bool IsAdmin { get; private set; }
+
+        [Ignore]
         public bool IsLogged { get; set; }
 
         public Utilisateur(string nom, string prenom, string mdp)
@@ -17,7 +28,6 @@ namespace Models
             Nom = nom;
             Prenom = prenom;
             Password = mdp;
-            Id++;
         }
 
         public void Login()

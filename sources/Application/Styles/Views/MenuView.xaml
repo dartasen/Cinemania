@@ -7,8 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <Button Content="Mon compte"/>
-        <Button Content="Mes favoris"/>
-        <Button Click="Button_Click" Content="Déconnexion"/>
+        <StackPanel Margin="5,5,0,5" Orientation="Horizontal">
+            <Ellipse Width="50" Height="50">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="C:/Users/calip/Downloads/porg.jpg"></ImageBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Label FontSize="15" Margin="8" ContentStringFormat="Bienvenue {0}" Content="{Binding CurrentUser}" Foreground="#f1c454" Width="130" />
+        </StackPanel>
+
+        <StackPanel>
+            <Button Content="Mon compte"/>
+            <Button Content="Mes favoris"/>
+            <Button Click="Button_Click" Content="Déconnexion"/>
+        </StackPanel>
     </StackPanel>
 </UserControl>

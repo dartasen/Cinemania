@@ -1,34 +1,26 @@
 ﻿using System;
-using System.Data.SQLite;
+using SQLite;
 using System.IO;
+using Models;
 
 namespace managers
 {
     public class StockageBDD
     {
         private const string DatabaseFile = "db.sqlite";
-        private SQLiteConnection db;
-
+        public SQLiteConnection Database { get; private set; }
+        
         public StockageBDD()
         {
-            if (!File.Exists(DatabaseFile))
-            {
-                SQLiteConnection.CreateFile(DatabaseFile);
-            }
-
-            db = new SQLiteConnection("Data Source=" + DatabaseFile + ";Version=3;");
+            Database = new SQLiteConnection(DatabaseFile);
+            Database.CreateTable<Utilisateur>();
+            Database.CreateTable<Film>();
         }
 
-        public void Query(String command)
+        public int InsertUser(Utilisateur u)
         {
-            db.Open();
-
-            var sql = new SQLiteCommand(command, db);
-            sql.ExecuteNonQuery();
-
-            db.Close();
+            return Database.Insert(u);
         }
-
     }
 
 }

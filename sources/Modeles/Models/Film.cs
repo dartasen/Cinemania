@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SQLite;
 
 namespace Models
 {
-    public struct Film
+    [Table("Film")]
+    public class Film
     {
-        public static int Id = 0;
+        [PrimaryKey, AutoIncrement, Column("id")]
+        public int Id { get; private set; }
+        [Column("titre"), NotNull, MaxLength(30)]
         public string Titre { get; private set; }
+        [Column("realisateur"), NotNull, MaxLength(20)]
         public string Realisateur { get; private set; }
+        [Column("date"), NotNull]
         public DateTime Sortie { get; private set; }
 
         public Film(string titre, string realisateur, DateTime sortie)
@@ -18,7 +22,6 @@ namespace Models
             Titre = titre;
             Realisateur = realisateur;
             Sortie = sortie;
-            Id++;
         }
     }
 }

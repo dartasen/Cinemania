@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stockage.managers", "Stocka
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modeles.Interfaces", "Modeles\Interfaces\Modeles.Interfaces.csproj", "{2B675900-3D53-43B4-9B3C-B784A6AF45BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stockage.Managers.Test", "Stockage\test\Stockage.Managers.Test\Stockage.Managers.Test.csproj", "{9E3914A2-D838-4444-AEBA-EC309363BA81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2B675900-3D53-43B4-9B3C-B784A6AF45BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B675900-3D53-43B4-9B3C-B784A6AF45BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B675900-3D53-43B4-9B3C-B784A6AF45BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3914A2-D838-4444-AEBA-EC309363BA81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3914A2-D838-4444-AEBA-EC309363BA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3914A2-D838-4444-AEBA-EC309363BA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3914A2-D838-4444-AEBA-EC309363BA81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{7336BAC7-2AB0-431F-83C1-7CFA66FBB69A} = {01C78EAF-0EF0-40A7-AB6B-DC0C0B26B0A5}
 		{6EC6EF78-0227-4D63-A457-D8FBFBAE52B0} = {AF19A36E-9F91-4D49-8CCB-589EC06FEE95}
 		{2B675900-3D53-43B4-9B3C-B784A6AF45BB} = {01C78EAF-0EF0-40A7-AB6B-DC0C0B26B0A5}
+		{9E3914A2-D838-4444-AEBA-EC309363BA81} = {AF19A36E-9F91-4D49-8CCB-589EC06FEE95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FAAFE970-F97B-41C4-9151-EE18E9707353}

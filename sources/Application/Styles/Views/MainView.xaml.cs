@@ -11,11 +11,11 @@ namespace Views
 {
     public partial class MainView : MetroWindow, INotifyPropertyChanged
     {
-        public Utilisateur MFS { get; }
-        public Control UC { get; set; }
-        private StockageBDD sql;
-
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public Utilisateur CurrentUser { get; private set; }
+        public Control UC { get; private set; }
+        private StockageBDD Sql { get; set; }
 
         public MainView()
         {
@@ -24,22 +24,20 @@ namespace Views
 
             PageSwitcher.pageSwitcher = this;
 
-            UC = new ConnectionView();
+            UC = new MenuView();
 
-            MFS = new Utilisateur("MF", "S", "12345");
-            sql = new StockageBDD();
+            CurrentUser = new Utilisateur("MF", "S", "12345");
+            Sql = new StockageBDD();
+
+            Sql.Database.Insert(CurrentUser);
         }
 
         public void Navigate(UserControl nextPage)
         {
-                this.UC = nextPage;
-                RaisePropertyChanged("UC");
-        }
+             this.UC = nextPage;
 
-        private void RaisePropertyChanged(String property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+             if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs("UC"));
         }
     }
 }

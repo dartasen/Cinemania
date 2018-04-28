@@ -64,17 +64,6 @@
         <Border DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,4,0">
             <StackPanel Background="#1e2a2d" Width="200" HorizontalAlignment="Left">
                 
-                
-                <StackPanel Margin="5,5,0,5" Orientation="Horizontal">
-                    <Ellipse Width="50" Height="50">
-                        <Ellipse.OpacityMask>
-                            <VisualBrush Visual="{StaticResource appbar_cupcake}" Stretch="Fill" />
-                        </Ellipse.OpacityMask>
-                    </Ellipse>
-
-                    <Label FontSize="15" Margin="8" ContentStringFormat="Bienvenue {0}" Content="{Binding MFS}" Foreground="#f1c454" Width="130" />
-                </StackPanel>
-
                 <Border Padding="5" Margin="0,0,0,5" DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
 
                     <ContentPresenter Content="{Binding UC}" />

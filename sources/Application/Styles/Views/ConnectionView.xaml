@@ -7,7 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <StackPanel>
-        <Button Command="{Binding cmd}" Click="Button_Click" Content="Se connecter"/>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Content=""></Label>
+        <TextBox></TextBox>
+        
+        <Button Click="Button_Click" Content="Se connecter"/>
+    </Grid>
 </UserControl>

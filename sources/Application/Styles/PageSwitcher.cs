@@ -1,4 +1,5 @@
 ﻿using Styles;
+using System.Windows;
 using System.Windows.Controls;
 using Views;
 
@@ -10,7 +11,12 @@ namespace Models
 
         public static void Switch(UserControl newPage)
         {
-            pageSwitcher.Navigate(newPage);
+            if (pageSwitcher != null) {
+                pageSwitcher.Navigate(newPage);
+                MessageBox.Show("Je change pour " + newPage.ToString());
+            } else {
+                throw new System.Exception("L'instance du pageSwitcher principal n'a pas été défini !");
+            }
         }
     }
 }
