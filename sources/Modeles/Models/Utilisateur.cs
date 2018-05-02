@@ -5,8 +5,11 @@ namespace Models
     [Table("Utilisateur")]
     public class Utilisateur
     {
-        [PrimaryKey, AutoIncrement, Column("id")]
+        [Column("id"), PrimaryKey, AutoIncrement]
         public int Id { get; private set; }
+
+        [Column("pseudo"), NotNull, MaxLength(30)]
+        public string Pseudo { get; private set; }
 
         [Column("nom"), NotNull, MaxLength(30)]
         public string Nom { get; private set; }
@@ -20,14 +23,27 @@ namespace Models
         [Column("isAdmin")]
         public bool IsAdmin { get; private set; }
 
-        [Ignore]
+        [Column("isLogged")]
         public bool IsLogged { get; set; }
 
-        public Utilisateur(string nom, string prenom, string mdp)
+        public Utilisateur(string pseudo, string nom, string prenom, string mdp)
         {
+            Pseudo = pseudo;
             Nom = nom;
             Prenom = prenom;
             Password = mdp;
+            IsAdmin = false;
+            IsLogged = false;
+        }
+
+        public Utilisateur()
+        {
+            Pseudo = "test";
+            Nom = "Défaut";
+            Prenom = "Défaut";
+            Password = "test";
+            IsAdmin = true;
+            IsLogged = true;
         }
 
         public void Login()

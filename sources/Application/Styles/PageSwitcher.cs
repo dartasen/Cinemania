@@ -13,7 +13,6 @@ namespace Models
         {
             if (pageSwitcher != null) {
                 pageSwitcher.Navigate(newPage);
-                MessageBox.Show("Je change pour " + newPage.ToString());
             } else {
                 throw new System.Exception("L'instance du pageSwitcher principal n'a pas été défini !");
             }

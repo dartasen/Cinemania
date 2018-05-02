@@ -15,29 +15,27 @@ namespace Views
 
         public Utilisateur CurrentUser { get; private set; }
         public Control UC { get; private set; }
-        private StockageBDD Sql { get; set; }
 
         public MainView()
         {
             InitializeComponent();
             DataContext = this;
+            StockageBDD.Init();
 
             PageSwitcher.pageSwitcher = this;
 
-            UC = new MenuView();
+            UC = new ConnectionView();
 
-            CurrentUser = new Utilisateur("MF", "S", "12345");
-            Sql = new StockageBDD();
+            CurrentUser = new Utilisateur("test", "MF", "S", "12345");
 
-            Sql.Database.Insert(CurrentUser);
+            StockageBDD.Insert<Utilisateur>(CurrentUser);
         }
 
         public void Navigate(UserControl nextPage)
         {
              this.UC = nextPage;
-
-             if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs("UC"));
+  
+             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UC)));
         }
     }
 }

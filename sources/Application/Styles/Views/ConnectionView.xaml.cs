@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using managers;
 using Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,9 +16,24 @@ namespace Views
             DataContext = this;
         }
 
-        public void Button_Click(object sender, RoutedEventArgs args)
+        public void Login_Click(object sender, RoutedEventArgs args)
         {
-            Switch(new MenuView());
+            string pseudo = Pseudo.Text, mdp = MotDePasse.Password;
+
+            if (string.IsNullOrWhiteSpace(pseudo) || string.IsNullOrWhiteSpace(mdp))
+                return;
+
+            bool connect = StockageBDD.CheckUser(pseudo, mdp);
+
+            if (connect)
+            {
+                Switch(new MenuView());
+            }
+            else
+            {
+                MotDePasse.Password = "";
+                MessageBox.Show("Mot de passe incorrect :(", "Erreur lors de l'authentification");
+            }
         }
 
         public void Switch(UserControl uc)

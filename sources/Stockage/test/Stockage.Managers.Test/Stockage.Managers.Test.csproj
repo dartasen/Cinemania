@@ -75,9 +75,9 @@
       <Project>{7336BAC7-2AB0-431F-83C1-7CFA66FBB69A}</Project>
       <Name>Modeles.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\managers\Stockage.managers.csproj">
+    <ProjectReference Include="..\..\managers\Stockage.Managers.csproj">
       <Project>{6ec6ef78-0227-4d63-a457-d8fbfbae52b0}</Project>
-      <Name>Stockage.managers</Name>
+      <Name>Stockage.Managers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

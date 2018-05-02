@@ -7,21 +7,35 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <StackPanel>
+        <Label HorizontalAlignment="Center" FontSize="18">Connexion</Label>
 
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+        <Border Padding="10,0,10,10">
+            <StackPanel>
 
-        <Label Content=""></Label>
-        <TextBox></TextBox>
-        
-        <Button Click="Button_Click" Content="Se connecter"/>
-    </Grid>
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <Rectangle Width="15" Height="15" Fill="White">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_user}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Label>Pseudo</Label>
+                </StackPanel>
+                <TextBox Name="Pseudo"/>
+
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <Rectangle Width="15" Height="15" Fill="White">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_key}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Label>Mot de passe</Label>
+                </StackPanel>
+                <PasswordBox Name="MotDePasse"/>
+                
+            </StackPanel>
+        </Border>
+
+        <Button Click="Login_Click" IsDefault="True" Content="Se connecter"/>
+    </StackPanel>
 </UserControl>

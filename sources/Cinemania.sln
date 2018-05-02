@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stockage", "Stockage", "{AF19A36E-9F91-4D49-8CCB-589EC06FEE95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stockage.managers", "Stockage\managers\Stockage.managers.csproj", "{6EC6EF78-0227-4D63-A457-D8FBFBAE52B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stockage.Managers", "Stockage\managers\Stockage.Managers.csproj", "{6EC6EF78-0227-4D63-A457-D8FBFBAE52B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modeles.Interfaces", "Modeles\Interfaces\Modeles.Interfaces.csproj", "{2B675900-3D53-43B4-9B3C-B784A6AF45BB}"
 EndProject

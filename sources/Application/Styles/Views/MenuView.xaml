@@ -10,7 +10,7 @@
         <StackPanel Margin="5,5,0,5" Orientation="Horizontal">
             <Ellipse Width="50" Height="50">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="C:/Users/calip/Downloads/porg.jpg"></ImageBrush>
+                    <ImageBrush ImageSource="pack://application:,,,/Resources/porg.jpg"></ImageBrush>
                 </Ellipse.Fill>
             </Ellipse>
 

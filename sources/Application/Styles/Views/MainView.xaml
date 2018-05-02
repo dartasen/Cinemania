@@ -12,16 +12,13 @@
         <Controls:WindowCommands>
             <Button>
                 <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20"
-                   Height="20"
-                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_alert}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
-                    <TextBlock Margin="4 0 0 0"
-                   VerticalAlignment="Center"
-                   Text="Options" />
+                    
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Options" />
                 </StackPanel>
             </Button>
         </Controls:WindowCommands>
@@ -63,11 +60,9 @@
     <DockPanel LastChildFill="True">
         <Border DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,4,0">
             <StackPanel Background="#1e2a2d" Width="200" HorizontalAlignment="Left">
-                
+
                 <Border Padding="5" Margin="0,0,0,5" DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
-
                     <ContentPresenter Content="{Binding UC}" />
-
                 </Border>
 
                 <Border Padding="5" BorderBrush="#403b2d" BorderThickness="0,0,0,4">

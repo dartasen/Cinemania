@@ -23,5 +23,7 @@ namespace Models
             Realisateur = realisateur;
             Sortie = sortie;
         }
+
+        public Film() { }
     }
 }

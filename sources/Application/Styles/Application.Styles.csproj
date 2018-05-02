@@ -44,9 +44,8 @@
       <HintPath>..\..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.6.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MahApps.Metro.1.6.1\lib\net45\MahApps.Metro.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MahApps.Metro, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MahApps.Metro.1.6.2\lib\net46\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="SQLite-net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\sqlite-net-pcl.1.4.118\lib\netstandard1.1\SQLite-net.dll</HintPath>
@@ -164,9 +163,9 @@
       <Project>{7336bac7-2ab0-431f-83c1-7cfa66fbb69a}</Project>
       <Name>Modeles.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Stockage\managers\Stockage.managers.csproj">
+    <ProjectReference Include="..\..\Stockage\managers\Stockage.Managers.csproj">
       <Project>{6ec6ef78-0227-4d63-a457-d8fbfbae52b0}</Project>
-      <Name>Stockage.managers</Name>
+      <Name>Stockage.Managers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
