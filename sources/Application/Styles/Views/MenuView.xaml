@@ -10,7 +10,7 @@
         <StackPanel Margin="5,5,0,5" Orientation="Horizontal">
             <Ellipse Width="50" Height="50">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="pack://application:,,,/Resources/porg.jpg"></ImageBrush>
+                    <ImageBrush ImageSource="{Binding CurrentUser.Img}"></ImageBrush>
                 </Ellipse.Fill>
             </Ellipse>
 
@@ -20,7 +20,7 @@
         <StackPanel>
             <Button Content="Mon compte"/>
             <Button Content="Mes favoris"/>
-            <Button Click="Button_Click" Content="Déconnexion"/>
+            <Button Click="Logout_Click" Content="Déconnexion"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

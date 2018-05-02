@@ -5,6 +5,9 @@ namespace Models
     [Table("Utilisateur")]
     public class Utilisateur
     {
+        [Ignore]
+        public string Img { get; } = "pack://application:,,,/Resources/porg.jpg";
+
         [Column("id"), PrimaryKey, AutoIncrement]
         public int Id { get; private set; }
 
@@ -42,8 +45,8 @@ namespace Models
             Nom = "Défaut";
             Prenom = "Défaut";
             Password = "test";
-            IsAdmin = true;
-            IsLogged = true;
+            IsAdmin = false;
+            IsLogged = false;
         }
 
         public void Login()

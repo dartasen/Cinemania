@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using managers;
+﻿using Managers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 
@@ -12,12 +10,14 @@ namespace Stockage.Managers.Test
         [TestMethod]
         public void CreateUsersSuccess()
         {
-            var db = new StockageBDD().Database;
+            StockageBDD.Init();
+
+            var db = StockageBDD.Database;
             int test = -1;
 
             for (int i = 0; i < 5; i++)
             {
-                test = db.Insert(new Utilisateur("Nom" + i, "Prenom" + i, "123soleil"));
+                test = db.Insert(new Utilisateur("pseudo" + i, "Nom" + i, "Prenom" + i, "123soleil"));
                 Assert.IsTrue(test > 0);
             }
 
@@ -27,7 +27,9 @@ namespace Stockage.Managers.Test
         [TestMethod]
         public void LinQBeyondUsersSuccess()
         {
-            var db = new StockageBDD().Database;
+            StockageBDD.Init();
+
+            var db = StockageBDD.Database;
 
             var selectUser = db.Get<Utilisateur>(u => u.IsAdmin);
             var selectUser2 = db.Table<Utilisateur>().Select<string>(u => u.Nom);

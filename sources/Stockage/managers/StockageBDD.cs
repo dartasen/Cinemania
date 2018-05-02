@@ -3,12 +3,12 @@ using SQLite;
 using System.IO;
 using Models;
 
-namespace managers
+namespace Managers
 {
     public static class StockageBDD
     {
         private const string DatabaseFile = "db.sqlite";
-        private static SQLiteConnection Database { get; set; }
+        public static SQLiteConnection Database { get; private set; }
         
         public static void Init()
         {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.ComponentModel;
-using System.Windows;
+﻿using System.ComponentModel;
 using System.Windows.Controls;
-using Interfaces;
 using MahApps.Metro.Controls;
-using managers;
+using Managers;
 using Models;
 
 namespace Views

@@ -3,18 +3,18 @@ using Models;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Views
+namespace Styles.Views
 {
-    public partial class MenuView : UserControl, ISwitch
+    public partial class RegistrationView : UserControl, ISwitch
     {
-        public MenuView()
+        public RegistrationView()
         {
             InitializeComponent();
         }
 
-        public void Logout_Click(object sender, RoutedEventArgs args)
+        private void Registration_Click(object sender, RoutedEventArgs e)
         {
-            Switch(new ConnectionView());
+
         }
 
         public void Switch(UserControl uc) => PageSwitcher.Switch(uc);

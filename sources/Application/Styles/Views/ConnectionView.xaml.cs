@@ -1,9 +1,10 @@
 ﻿using Interfaces;
-using managers;
+using Managers;
 using Models;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Controls;
 
 namespace Views
 {
@@ -23,22 +24,17 @@ namespace Views
             if (string.IsNullOrWhiteSpace(pseudo) || string.IsNullOrWhiteSpace(mdp))
                 return;
 
-            bool connect = StockageBDD.CheckUser(pseudo, mdp);
+            var win = (Application.Current.MainWindow as MetroWindow);
 
-            if (connect)
-            {
+            if (StockageBDD.CheckUser(pseudo, mdp)) {
                 Switch(new MenuView());
-            }
-            else
-            {
+                win.ShowMessageAsync("Authentification réussie", "Ouiiiiiiiiiiii !");
+            } else {
                 MotDePasse.Password = "";
-                MessageBox.Show("Mot de passe incorrect :(", "Erreur lors de l'authentification");
+                win.ShowMessageAsync("Erreur lors de l'authentification", "Mot de passe incorrect :(");
             }
         }
 
-        public void Switch(UserControl uc)
-        {
-            PageSwitcher.Switch(uc);
-        }
+        public void Switch(UserControl uc) => PageSwitcher.Switch(uc);
     }
 }

@@ -1,6 +1,4 @@
-﻿using Styles;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using Views;
 
 namespace Models
