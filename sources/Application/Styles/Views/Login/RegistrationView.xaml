@@ -55,6 +55,6 @@
             </StackPanel>
         </Border>
 
-        <Button Click="Registration_Click" IsDefault="True" Content="Se connecter"/>
+        <Button Click="Registration_Click" IsDefault="True" Content="S'inscrire"/>
     </StackPanel>
 </UserControl>

@@ -95,23 +95,7 @@
 
         <DockPanel Background="#eeeeee">
             <ScrollBar DockPanel.Dock="Right" HorizontalAlignment="Right"></ScrollBar>
-
-            <Border BorderBrush="Black" BorderThickness="2">
-                <WrapPanel>
-
-                    <StackPanel>
-                        <Rectangle Fill="White" Height="100" Width="50"/>
-                        <TextBox>Perdu dans l'espace</TextBox>
-                        <Rectangle Fill="Black">
-                            <Rectangle.OpacityMask>
-                                <VisualBrush Visual="{StaticResource appbar_star}" Stretch="Fill" />
-                            </Rectangle.OpacityMask>
-                        </Rectangle>
-                    </StackPanel>
-                    
-                </WrapPanel>
-            </Border>
-
+            <local:FilmView Films="{Binding ListeFilms}" />
         </DockPanel>
     </DockPanel>
 </Controls:MetroWindow>

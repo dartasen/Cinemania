@@ -63,6 +63,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilmTest.cs" />
     <Compile Include="UtilisateurTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

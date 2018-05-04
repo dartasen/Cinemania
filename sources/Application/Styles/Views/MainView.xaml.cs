@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using Managers;
@@ -10,29 +11,29 @@ namespace Views
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public ObservableCollection<Film> ListeFilms { get; private set; }
         public Utilisateur CurrentUser { get; private set; }
-        public Control UC { get; private set; }
+        public Control UC { get; private set; } = new ConnectionView();
 
         public MainView()
         {
             InitializeComponent();
+
+            ControlSwitcher.main = this;
             DataContext = this;
             StockageBDD.Init();
 
-            PageSwitcher.pageSwitcher = this;
-
-            UC = new ConnectionView();
-
             CurrentUser = new Utilisateur("test", "MF", "S", "12345");
+            ListeFilms = StockageBDD.GetFilms();
 
             StockageBDD.Insert<Utilisateur>(CurrentUser);
         }
 
         public void Navigate(UserControl nextPage)
         {
-             this.UC = nextPage;
-  
-             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UC)));
+            this.UC = nextPage;
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UC)));
         }
     }
 }

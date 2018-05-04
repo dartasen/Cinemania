@@ -10,9 +10,8 @@ namespace Stockage.Managers.Test
         [TestMethod]
         public void CreateUsersSuccess()
         {
-            StockageBDD.Init();
+            var db = StockageBDD.Init();
 
-            var db = StockageBDD.Database;
             int test = -1;
 
             for (int i = 0; i < 5; i++)
@@ -27,9 +26,7 @@ namespace Stockage.Managers.Test
         [TestMethod]
         public void LinQBeyondUsersSuccess()
         {
-            StockageBDD.Init();
-
-            var db = StockageBDD.Database;
+            var db = StockageBDD.Init();
 
             var selectUser = db.Get<Utilisateur>(u => u.IsAdmin);
             var selectUser2 = db.Table<Utilisateur>().Select<string>(u => u.Nom);

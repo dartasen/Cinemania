@@ -17,6 +17,6 @@ namespace Styles.Views
 
         }
 
-        public void Switch(UserControl uc) => PageSwitcher.Switch(uc);
+        public void Switch(UserControl uc) => ControlSwitcher.Switch(uc);
     }
 }

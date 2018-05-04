@@ -14,9 +14,9 @@ namespace Views
 
         public void Logout_Click(object sender, RoutedEventArgs args)
         {
-            Switch(new ConnectionView());
+            Switch(new ConnectionView()); 
         }
 
-        public void Switch(UserControl uc) => PageSwitcher.Switch(uc);
+        public void Switch(UserControl uc) => ControlSwitcher.Switch(uc);
     }
 }

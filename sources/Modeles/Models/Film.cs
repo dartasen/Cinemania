@@ -8,10 +8,13 @@ namespace Models
     {
         [PrimaryKey, AutoIncrement, Column("id")]
         public int Id { get; private set; }
+
         [Column("titre"), NotNull, MaxLength(30)]
         public string Titre { get; private set; }
+
         [Column("realisateur"), NotNull, MaxLength(20)]
         public string Realisateur { get; private set; }
+
         [Column("date"), NotNull]
         public DateTime Sortie { get; private set; }
 

@@ -26,15 +26,18 @@ namespace Views
 
             var win = (Application.Current.MainWindow as MetroWindow);
 
-            if (StockageBDD.CheckUser(pseudo, mdp)) {
+            if (StockageBDD.CheckUser(pseudo, mdp))
+            {
                 Switch(new MenuView());
                 win.ShowMessageAsync("Authentification réussie", "Ouiiiiiiiiiiii !");
-            } else {
+            }
+            else
+            {
                 MotDePasse.Password = "";
                 win.ShowMessageAsync("Erreur lors de l'authentification", "Mot de passe incorrect :(");
             }
         }
 
-        public void Switch(UserControl uc) => PageSwitcher.Switch(uc);
+        public void Switch(UserControl uc) => ControlSwitcher.Switch(uc);
     }
 }
