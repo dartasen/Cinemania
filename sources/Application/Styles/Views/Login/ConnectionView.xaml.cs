@@ -29,6 +29,7 @@ namespace Views
             if (StockageBDD.CheckUser(pseudo, mdp))
             {
                 Switch(new MenuView());
+
                 win.ShowMessageAsync("Authentification réussie", "Ouiiiiiiiiiiii !");
             }
             else

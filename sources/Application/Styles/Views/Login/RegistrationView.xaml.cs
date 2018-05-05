@@ -1,4 +1,6 @@
 ﻿using Interfaces;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,6 +9,7 @@ namespace Styles.Views
 {
     public partial class RegistrationView : UserControl, ISwitch
     {
+
         public RegistrationView()
         {
             InitializeComponent();

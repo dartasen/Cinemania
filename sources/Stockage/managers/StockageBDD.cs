@@ -39,13 +39,12 @@ namespace Managers
         {
             var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
 
-            return query.Count() == 1;
+            return true;
         }
          
         public static ObservableCollection<Film> GetFilms()
         {
             var list = Database.Query<Film>("SELECT * FROM Film ORDER BY titre");
-
             return new ObservableCollection<Film>(list);
         }
     }

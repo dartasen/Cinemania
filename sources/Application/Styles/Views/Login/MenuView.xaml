@@ -18,9 +18,10 @@
         </StackPanel>
 
         <StackPanel>
-            <Button Content="Mon compte"/>
+            <Button Click="Account_Click"  Content="Mon compte"/>
             <Button Content="Mes favoris"/>
             <Button Click="Logout_Click" Content="Déconnexion"/>
+            <Button Name="admin_Btn" Visibility="Collapsed" Content="Administration"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

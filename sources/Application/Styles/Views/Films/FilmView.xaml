@@ -6,10 +6,11 @@
              xmlns:local="clr-namespace:Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
+
     <Grid>
         <Border BorderBrush="Black" BorderThickness="2">
-            <ItemsControl ItemsSource="{Binding Films}">
+            <ItemsControl ItemsSource="{Binding ListeFilms}">
+
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
@@ -17,13 +18,16 @@
                 </ItemsControl.ItemsPanel>
 
                 <ItemsControl.ItemTemplate>
+
                     <DataTemplate>
                         <StackPanel Margin="10">
-                            <Rectangle Fill="White" Height="100" Width="50"/>
-                            <Label Content="{Binding Titre}"></Label>
+                            <Rectangle Fill="White" Height="100" Width="70"/>
+                            <Label Foreground="#000" MaxWidth="120" Content="{Binding Titre}" />
                         </StackPanel>
                     </DataTemplate>
+
                 </ItemsControl.ItemTemplate>
+
             </ItemsControl>
         </Border>
     </Grid>

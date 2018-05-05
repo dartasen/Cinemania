@@ -29,13 +29,13 @@ namespace Models
         [Column("isLogged")]
         public bool IsLogged { get; set; }
 
-        public Utilisateur(string pseudo, string nom, string prenom, string mdp)
+        public Utilisateur(string pseudo, string nom, string prenom, string mdp, bool admin = false)
         {
             Pseudo = pseudo;
             Nom = nom;
             Prenom = prenom;
             Password = mdp;
-            IsAdmin = false;
+            IsAdmin = admin;
             IsLogged = false;
         }
 

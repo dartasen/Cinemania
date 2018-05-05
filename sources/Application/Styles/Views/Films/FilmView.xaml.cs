@@ -20,14 +20,15 @@ namespace Views
 {
     public partial class FilmView : UserControl, ISwitch
     {
+
         public ObservableCollection<Film> Films
         {
-            get { return (ObservableCollection<Film>) GetValue(FilmsProperty); }
-            set { SetValue(FilmsProperty, value); }
+            get => (ObservableCollection<Film>)GetValue(FilmsProperty);
+            set => SetValue(FilmsProperty, value);
         }
 
         public static readonly DependencyProperty FilmsProperty =
-            DependencyProperty.Register("Films", typeof(ObservableCollection<Film>), typeof(FilmView), null);
+            DependencyProperty.Register("Films", typeof(ObservableCollection<Film>), typeof(FilmView), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         public FilmView()
         {
