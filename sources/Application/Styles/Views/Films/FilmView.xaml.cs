@@ -28,7 +28,7 @@ namespace Views
         }
 
         public static readonly DependencyProperty FilmsProperty =
-            DependencyProperty.Register("Films", typeof(ObservableCollection<Film>), typeof(FilmView), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+            DependencyProperty.Register("Films", typeof(ObservableCollection<Film>), typeof(FilmView), null);
 
         public FilmView()
         {

@@ -12,9 +12,10 @@ namespace Views
     public partial class MainView : MetroWindow, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<Film> ListeFilms { get; set; }
-        public static Utilisateur CurrentUser { get; private set; }
+
+        public ObservableCollection<Film> ListeFilms { get; private set; }
         public Control UC { get; private set; } = new ConnectionView();
+        public static Utilisateur CurrentUser { get; set; }
 
         public MainView()
         {

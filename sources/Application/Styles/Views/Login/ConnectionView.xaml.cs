@@ -25,9 +25,11 @@ namespace Views
                 return;
 
             var win = (Application.Current.MainWindow as MetroWindow);
+            var user = StockageBDD.CheckUser(pseudo, mdp);
 
-            if (StockageBDD.CheckUser(pseudo, mdp))
+            if (user != null)
             {
+                MainView.CurrentUser = user;
                 Switch(new MenuView());
 
                 win.ShowMessageAsync("Authentification réussie", "Ouiiiiiiiiiiii !");

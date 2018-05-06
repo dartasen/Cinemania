@@ -35,11 +35,16 @@ namespace Managers
             return Database.Insert(u);
         }
 
-        public static bool CheckUser(string pseudo, string mdp)
+        public static Utilisateur CheckUser(string pseudo, string mdp)
         {
             var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
 
-            return true;
+            if (query.Count() == 1)
+            {
+                return query.First();
+            }
+
+            return null;
         }
          
         public static ObservableCollection<Film> GetFilms()

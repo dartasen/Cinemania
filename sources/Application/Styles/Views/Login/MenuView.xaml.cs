@@ -20,6 +20,7 @@ namespace Views
 
         public void Logout_Click(object sender, RoutedEventArgs args)
         {
+            MainView.CurrentUser = null;
             Switch(new ConnectionView()); 
         }
 
