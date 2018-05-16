@@ -12,6 +12,12 @@ namespace Managers
         private const string DatabaseFile = "db.sqlite";
         public static SQLiteConnection Database { get; private set; }
 
+        /// <summary>
+        /// Initialise la base de donnée SQLITE
+        /// </summary>
+        /// 
+        /// <exception cref="Exception">Exception déclenchée quand la Base de Donnée ne peut-être créée</exception>
+        /// <returns>Retourne une instance unique de la Base De Donnée</returns>
         public static SQLiteConnection Init()
         {
             if (Database != null)
@@ -30,11 +36,22 @@ namespace Managers
             return Database;
         }
 
-        public static int Insert<T>(T u)
-        {
-            return Database.Insert(u);
-        }
+        /// <summary>
+        /// Permet d'insérer un objet dans la base de donnée
+        /// </summary>
+        /// 
+        /// <typeparam name="T">Le type objet qui visera une table de la base de donnée</typeparam>
+        /// <param name="u">L'objet a inséré</param>
+        /// <returns>Retourne un nombre signifiant l'état de l'insertion</returns>
+        public static int Insert<T>(T u) => Database.Insert(u);
 
+        /// <summary>
+        /// Vérifie si un doublon pseudo/mdp existe dans la base de donnée
+        /// </summary>
+        /// 
+        /// <param name="pseudo">Le pseudo</param>
+        /// <param name="mdp">Le mot de passe</param>
+        /// <returns>Retourne l'utilisateur correspondant au doublon</returns>
         public static Utilisateur CheckUser(string pseudo, string mdp)
         {
             var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
@@ -46,7 +63,12 @@ namespace Managers
 
             return null;
         }
-         
+        
+        /// <summary>
+        /// Retourne la liste de film contenue dans la Base De Donnée
+        /// </summary>
+        /// 
+        /// <returns>La collection observable des films</returns>
         public static ObservableCollection<Film> GetFilms()
         {
             var list = Database.Query<Film>("SELECT * FROM Film ORDER BY titre");

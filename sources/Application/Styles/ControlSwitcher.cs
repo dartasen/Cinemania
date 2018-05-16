@@ -6,8 +6,16 @@ namespace Models
 {
     public static class ControlSwitcher
     {
+        /// <summary>
+        /// L'instance du MainWindow
+        /// </summary>
         public static MainView main;
 
+        /// <summary>
+        /// Permet de contrôler le UserControl dans le ContentPresenter de la MainWindow
+        /// </summary>
+        /// 
+        /// <param name="newPage">Le UserControl a afficher</param>
         public static void Switch(UserControl newPage)
         {
             if (main != null)

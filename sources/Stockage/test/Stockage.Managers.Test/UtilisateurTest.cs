@@ -7,6 +7,11 @@ namespace Stockage.Managers.Test
     [TestClass]
     public class UtilisateurTest
     {
+        /// <summary>
+        /// Vérifie si l'insertion des utilisateurs fonctionne correctement
+        /// * Test des insertions
+        /// * Comptage dans la base de donnée via LinQ
+        /// </summary>
         [TestMethod]
         public void CreateUsersSuccess()
         {
@@ -20,19 +25,23 @@ namespace Stockage.Managers.Test
                 Assert.IsTrue(test > 0);
             }
 
-            Assert.IsTrue(db.Table<Utilisateur>().Count() == 4);
+            Assert.IsTrue(db.Table<Utilisateur>().Count() > 0);
         }
 
+        /// <summary>
+        /// Vérifie si la sélection dans la Base De Donnée avec LinQ fonctionne
+        /// * Test des insertions
+        /// </summary>
         [TestMethod]
         public void LinQBeyondUsersSuccess()
         {
             var db = StockageBDD.Init();
 
-            var selectUser = db.Get<Utilisateur>(u => u.IsAdmin);
-            var selectUser2 = db.Table<Utilisateur>().Select<string>(u => u.Nom);
+            int test = db.Insert(new Utilisateur("toto", "titi", "titi", "1234", true));
 
-            Assert.IsNotNull(selectUser);
-            Assert.IsNotNull(selectUser2);
+            Assert.IsTrue(test > 0);
+            Assert.IsNotNull(value: db.Get<Utilisateur>(u => u.IsAdmin == true));
+            Assert.IsNotNull(value: db.Table<Utilisateur>().Select<string>(u => u.Nom));
         }
     }
 }

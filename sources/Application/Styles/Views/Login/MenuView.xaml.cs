@@ -18,7 +18,7 @@ namespace Views
                 this.admin_Btn.Visibility = Visibility.Visible;
         }
 
-        public void Logout_Click(object sender, RoutedEventArgs args)
+        private void Logout_Click(object sender, RoutedEventArgs args)
         {
             MainView.CurrentUser = null;
             Switch(new ConnectionView()); 
@@ -28,7 +28,12 @@ namespace Views
         {
             var win = (Application.Current.MainWindow as MetroWindow);
 
-            win.ShowLoginAsync("test", "salut bg");
+     
+        }
+
+        private void Favoris_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         public void Switch(UserControl uc) => ControlSwitcher.Switch(uc);

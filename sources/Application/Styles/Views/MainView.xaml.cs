@@ -38,7 +38,6 @@ namespace Views
         public void Navigate(UserControl nextPage)
         {
             this.UC = nextPage;
-
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UC)));
         }
     }
