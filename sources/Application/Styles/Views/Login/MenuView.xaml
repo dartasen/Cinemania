@@ -21,7 +21,7 @@
             <Button Click="Account_Click"  Content="Mon compte"/>
             <Button Click="Favoris_Click" Content="Mes favoris"/>
             <Button Click="Logout_Click" Content="Déconnexion"/>
-            <Button Name="admin_Btn" Visibility="Collapsed" Content="Administration"/>
+            <Button Click="Admin_Click" Name="admin_Btn" Visibility="Collapsed" Content="Administration"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

@@ -46,7 +46,7 @@ namespace Managers
         public static int Insert<T>(T u) => Database.Insert(u);
 
         /// <summary>
-        /// Vérifie si un doublon pseudo/mdp existe dans la base de donnée
+        /// Vérifie si un doublon pseudo/mdp existe dans la Base De Donnée
         /// </summary>
         /// 
         /// <param name="pseudo">Le pseudo</param>
@@ -56,12 +56,30 @@ namespace Managers
         {
             var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
 
-            if (query.Count() == 1)
+            if (query.Count() > 0)
             {
                 return query.First();
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Vérifie si un utilisateur existe déjà dans la Base De Donnée
+        /// </summary>
+        /// 
+        /// <param name="pseudo">Le pseudo de l'utilisateur</param>
+        /// <returns>Retourne "true" si l'utilisateur existe sinon "false"</returns>
+        public static bool CheckIfUserExists(string pseudo)
+        {
+            var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo));
+
+            if (query.Count() > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
         
         /// <summary>

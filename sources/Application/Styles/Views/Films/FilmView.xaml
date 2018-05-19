@@ -18,14 +18,12 @@
                 </ItemsControl.ItemsPanel>
 
                 <ItemsControl.ItemTemplate>
-
                     <DataTemplate>
                         <StackPanel Margin="10">
-                            <Rectangle Fill="White" Height="100" Width="70"/>
+                            <Rectangle Fill="White" Height="100" Width="70" />
                             <Label Foreground="#000" MaxWidth="120" Content="{Binding Titre}" />
                         </StackPanel>
                     </DataTemplate>
-
                 </ItemsControl.ItemTemplate>
 
             </ItemsControl>

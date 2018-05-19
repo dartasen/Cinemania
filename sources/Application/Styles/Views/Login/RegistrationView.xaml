@@ -6,6 +6,19 @@
              xmlns:local="clr-namespace:Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style TargetType="Rectangle" x:Key="RegisterRectangle">
+            <Setter Property="Width" Value="15" />
+            <Setter Property="Height" Value="15" />
+            <Setter Property="Fill" Value="Black" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+    </UserControl.Resources>
+    
     <StackPanel>
         <Label HorizontalAlignment="Center" FontSize="18">Inscription</Label>
 
@@ -13,7 +26,7 @@
             <StackPanel>
 
                 <StackPanel Margin="5" Orientation="Horizontal">
-                    <Rectangle Width="15" Height="15" Fill="White">
+                    <Rectangle Style="{StaticResource RegisterRectangle}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_user}" />
                         </Rectangle.OpacityMask>
@@ -23,9 +36,9 @@
                 <TextBox Name="Pseudo"/>
 
                 <StackPanel Margin="5" Orientation="Horizontal">
-                    <Rectangle Width="15" Height="15" Fill="White">
+                    <Rectangle Style="{StaticResource RegisterRectangle}">
                         <Rectangle.OpacityMask>
-                            <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_barcode}" />
+                            <VisualBrush  Stretch="Uniform" Visual="{DynamicResource appbar_barcode}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <Label>Nom</Label>
@@ -33,7 +46,7 @@
                 <TextBox Name="Nom"/>
 
                 <StackPanel Margin="5" Orientation="Horizontal">
-                    <Rectangle Width="15" Height="15" Fill="White">
+                    <Rectangle Style="{StaticResource RegisterRectangle}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_copyright}" />
                         </Rectangle.OpacityMask>
@@ -43,7 +56,7 @@
                 <TextBox Name="Prenom"/>
 
                 <StackPanel Margin="5" Orientation="Horizontal">
-                    <Rectangle Width="15" Height="15" Fill="White">
+                    <Rectangle Style="{StaticResource RegisterRectangle}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_key}" />
                         </Rectangle.OpacityMask>
@@ -55,6 +68,14 @@
             </StackPanel>
         </Border>
 
-        <Button Click="Registration_Click" IsDefault="True" Content="S'inscrire"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Click="Registration_Click" IsDefault="True" Content="S'inscrire"/>
+            <Button Grid.Column="1" Click="Back_Click" Content="Annuler" />
+        </Grid>
     </StackPanel>
 </UserControl>

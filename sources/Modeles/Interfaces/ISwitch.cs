@@ -4,6 +4,6 @@ namespace Interfaces
 {
     public interface ISwitch
     {
-        void Switch(UserControl uc);
+        void Switch(UserControl uc, bool sidebar = true);
     }
 }

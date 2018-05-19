@@ -23,7 +23,7 @@ namespace Views
 
         public ObservableCollection<Film> Films
         {
-            get => (ObservableCollection<Film>)GetValue(FilmsProperty);
+            get => (ObservableCollection<Film>) GetValue(FilmsProperty);
             set => SetValue(FilmsProperty, value);
         }
 
@@ -35,6 +35,6 @@ namespace Views
             InitializeComponent();
         }
 
-        public void Switch(UserControl uc) => ControlSwitcher.Switch(uc);
+        public void Switch(UserControl uc, bool sidebar = true) => ControlSwitcher.Switch(uc, sidebar);
     }
 }

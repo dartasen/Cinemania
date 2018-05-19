@@ -27,15 +27,20 @@ namespace Views
         private void Account_Click(object sender, RoutedEventArgs e)
         {
             var win = (Application.Current.MainWindow as MetroWindow);
-
-     
+            win.ShowMessageAsync("404 NOT FOUND", "Cette fonctionnalité n'est pas encore implémenté :(");
         }
 
         private void Favoris_Click(object sender, RoutedEventArgs e)
         {
-
+            var win = (Application.Current.MainWindow as MetroWindow);
+            win.ShowMessageAsync("404 NOT FOUND", "Cette fonctionnalité n'est pas encore implémenté :(");
         }
 
-        public void Switch(UserControl uc) => ControlSwitcher.Switch(uc);
+        private void Admin_Click(object sender, RoutedEventArgs e)
+        {
+            Switch(new FilmManagerView(), false);
+        }
+
+        public void Switch(UserControl uc, bool sidebar = true) => ControlSwitcher.Switch(uc, sidebar);
     }
 }

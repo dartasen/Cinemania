@@ -37,5 +37,6 @@
         </Border>
 
         <Button Click="Login_Click" IsDefault="True" Content="Se connecter"/>
+        <Button Click="Register_Click" Content="S'inscrire" />
     </StackPanel>
 </UserControl>

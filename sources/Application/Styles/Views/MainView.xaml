@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="😡 Cinémania 😡" Height="500" Width="800">
 
+    <!-- Style pour le menu de la window en haut à gauche -->
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button>
@@ -57,25 +58,28 @@
         </Style>
     </Controls:MetroWindow.Resources>
 
+    <!-- La sidebar -->
     <DockPanel LastChildFill="True">
         <Border DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,4,0">
             <StackPanel Background="#1e2a2d" Width="200" HorizontalAlignment="Left">
 
                 <Border Padding="5" Margin="0,0,0,5" DockPanel.Dock="Left" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
-                    <ContentPresenter Content="{Binding UC}" />
+                    <ContentPresenter Content="{Binding UC_Sidebar}" />
                 </Border>
 
+                <!-- Barre de recherche -->
                 <Border Padding="5" BorderBrush="#403b2d" BorderThickness="0,0,0,4">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <TextBox Margin="3"></TextBox>
+                        <TextBox Margin="3" />
                     </Grid>
                 </Border>
 
+                <!-- Menu de navigation (catégories, ..) -->
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition />
@@ -93,9 +97,12 @@
             </StackPanel>
         </Border>
 
+        <!-- Main Content -->
         <DockPanel Background="#eeeeee">
-            <ScrollBar DockPanel.Dock="Right" HorizontalAlignment="Right"></ScrollBar>
-            <local:FilmView Films="{Binding ListeFilms}" />
+            <ScrollBar DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            <!--<local:FilmView Films="{Binding ListeFilms}" />-->
+            <ContentPresenter Content="{Binding UC_Main}" />
         </DockPanel>
+        
     </DockPanel>
 </Controls:MetroWindow>

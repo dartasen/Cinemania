@@ -14,31 +14,40 @@ namespace Views
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<Film> ListeFilms { get; private set; }
-        public Control UC { get; private set; } = new ConnectionView();
+        public Control UC_Sidebar { get; private set; } = new ConnectionView();
+        public Control UC_Main { get; private set; } = new FilmView();
         public static Utilisateur CurrentUser { get; set; }
 
         public MainView()
         {
             InitializeComponent();
 
-            ControlSwitcher.main = this;
+            ControlSwitcher.Main = this;
             DataContext = this;
             StockageBDD.Init();
 
+            //TODO : Insertion à virer après les tests
             StockageBDD.Insert<Utilisateur>(new Utilisateur("test", "MF", "S", "test"));
             StockageBDD.Insert<Utilisateur>(new Utilisateur("admin", "ad", "min", "admin", true));
             StockageBDD.Insert<Film>(new Film("Perdu dans l'espace", "b", System.DateTime.Now));
-            StockageBDD.Insert<Film>(new Film("Perdu dans l'espacee", "b", System.DateTime.Now));
-            StockageBDD.Insert<Film>(new Film("Perdu dans l'espacee", "b", System.DateTime.Now));
-            StockageBDD.Insert<Film>(new Film("Perdu dans l'espaceeee", "b", System.DateTime.Now));
+            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", System.DateTime.Now));
+            //
 
             ListeFilms = StockageBDD.GetFilms();
         }
 
-        public void Navigate(UserControl nextPage)
+        public void Navigate(UserControl nextPage, bool sidebar = true)
         {
-            this.UC = nextPage;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UC)));
+            if (sidebar)
+            {
+                this.UC_Sidebar = nextPage;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UC_Sidebar)));
+            }
+            else
+            {
+                this.UC_Main = nextPage;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UC_Main)));
+            }
         }
     }
 }
