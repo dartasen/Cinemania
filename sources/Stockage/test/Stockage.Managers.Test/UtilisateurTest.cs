@@ -14,7 +14,7 @@ namespace Stockage.Managers.Test
         /// <summary>
         /// Vérifie que l'insertion des utilisateurs fonctionne correctement
         /// </summary>
-        [TestMethod]
+        [TestMethod, Priority(2)]
         public void CreateUserSuccess()
         {
             int test = -1;
@@ -31,7 +31,7 @@ namespace Stockage.Managers.Test
         /// <summary>
         /// Vérifie que la sélection dans la Base De Donnée avec LinQ via l'interface des tables fonctionne
         /// </summary>
-        [TestMethod]
+        [TestMethod, Priority(1)]
         public void LinQBeyondUsersSuccess()
         {
             int test = db.Insert(new Utilisateur("toto", "titi", "titi", "1234", true));
@@ -56,19 +56,27 @@ namespace Stockage.Managers.Test
             Assert.IsNull(connect);
         }
 
+        /// <summary>
+        /// Vérifie si un utilisateur existe dans la database
+        /// </summary>
         [TestMethod]
         public void CheckUserExist()
         {
             bool exist;
 
-            int test = db.Insert(new Utilisateur("test0", "test0", "test0", "test0"));
-            Assert.IsTrue(test > 0);
-
-            exist = StockageBDD.CheckIfUserExists("test0");
+            exist = StockageBDD.CheckIfUserExists("pseudo0");
             Assert.IsTrue(exist);
 
-            db.Table<Utilisateur>().Delete(u => u.Pseudo.Equals("test0"));
-            exist = StockageBDD.CheckIfUserExists("test0");
+            db.Table<Utilisateur>().Delete(u => u.Pseudo.Equals("pseudo0"));
+            exist = StockageBDD.CheckIfUserExists("pseudo0");
+            Assert.IsFalse(exist);
+
+            db.Table<Utilisateur>().Delete(u => u.Pseudo.Equals("pseudo1"));
+            exist = StockageBDD.CheckIfUserExists("pseudo1");
+            Assert.IsFalse(exist);
+
+            db.Table<Utilisateur>().Delete(u => u.Pseudo.Equals("toto"));
+            exist = StockageBDD.CheckIfUserExists("toto");
             Assert.IsFalse(exist);
         }
     }

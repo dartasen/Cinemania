@@ -28,7 +28,6 @@ namespace Views
             ControlSwitcher.Main = this;
             DataContext = this;
 
-
             UserChangedEvent.Instance.UserChanged += OnUserChanged;
 
             StockageBDD.Init();
@@ -36,19 +35,34 @@ namespace Views
             //TODO : Insertion à virer après les tests
             StockageBDD.Insert<Utilisateur>(new Utilisateur("test", "MF", "S", "test"));
             StockageBDD.Insert<Utilisateur>(new Utilisateur("admin", "ad", "min", "admin", true));
-            StockageBDD.Insert<Film>(new Film("Perdu dans l'espace", "b", System.DateTime.Now));
-            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", System.DateTime.Now));
+            StockageBDD.Insert<Film>(new Film("Perdu dans l'espace", "b", Categorie.ACTION, System.DateTime.Now));
+            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.ACTION, System.DateTime.Now));
+            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.AVENTURE, System.DateTime.Now));
+            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, System.DateTime.Now));
+            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, System.DateTime.Now));
             //
 
             ListeFilms = StockageBDD.GetFilms();
         }
 
+        /// <summary>
+        /// Méthode réceptive de l'évenement <see cref="UserChangedEvent"/>
+        /// </summary>
+        /// 
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnUserChanged(object sender, UserChangedEventArgs e)
         {
             CurrentUser = e.NewUser;
             Navigate(new MenuView());
         }
 
+        /// <summary>
+        /// Méthode qui est appellé dans <see cref="ControlSwitcher"/> qui permet de naviguer entre les vues
+        /// </summary>
+        /// 
+        /// <param name="nextPage">Le UserControl à afficher</param>
+        /// <param name="sidebar">Booléen qui permet de cibler la sidebar ou l'écran principal</param>
         public void Navigate(UserControl nextPage, bool sidebar = true)
         {
             if (nextPage == null)

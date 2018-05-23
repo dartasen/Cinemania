@@ -9,7 +9,7 @@ namespace Views
 {
     public partial class FilmManagerView : UserControl, ISwitch
     {
-        public ObservableCollection<Film> Films { get; private set; }
+        public ObservableCollection<Film> Films { get; }
 
         public FilmManagerView()
         {

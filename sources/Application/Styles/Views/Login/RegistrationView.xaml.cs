@@ -17,6 +17,9 @@ namespace Styles.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Méthode appelée quand on clique sur le bouton inscription
+        /// </summary>
         private void Registration_Click(object sender, RoutedEventArgs e)
         {
             string pseudo = Pseudo.Text, nom = Nom.Text, prenom = Prenom.Text, mdp = MotDePasse.Password;
@@ -62,6 +65,9 @@ namespace Styles.Views
             Switch(new FilmView(), false);
         }
 
+        /// <summary>
+        /// Méthode appelée quand on clique sur le bouton annuler
+        /// </summary>
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             Switch(new FilmView(), false);

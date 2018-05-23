@@ -18,12 +18,18 @@ namespace Stockage.Managers.Test
         [TestMethod]
         public void InsertFilmSuccess()
         {
-            db.Insert(new Film("Bonjour", "Hasbani", DateTime.Now));
+            db.Insert(new Film("Bonjour", "Hasbani", Categorie.THRILL, DateTime.Now));
 
             var films = StockageBDD.GetFilms();
 
             Assert.IsNotNull(films);
             Assert.IsTrue(films.Count() > 0);
+        }
+
+        [TestMethod]
+        public void GetFilmsByCategoriesSuccess()
+        {
+            
         }
     }
 }

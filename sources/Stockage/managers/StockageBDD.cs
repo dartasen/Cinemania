@@ -55,11 +55,11 @@ namespace Managers
         /// <returns>Retourne l'utilisateur correspondant au doublon</returns>
         public static Utilisateur CheckUser(string pseudo, string mdp)
         {
-            var query = Database.Table<Utilisateur>().Single(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
+            var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
 
-            if (query != null)
+            if (query.Count() > 0)
             {
-                return query;
+                return query.First();
             }
 
             return null;
@@ -92,6 +92,28 @@ namespace Managers
         {
             var list = Database.Query<Film>("SELECT * FROM Film ORDER BY titre");
             return new ObservableCollection<Film>(list);
+        }
+
+        /// <summary>
+        /// Retourne un dictionnaire associant une catégories à ses films
+        /// </summary>
+        /// 
+        /// <returns>Le dictionnaire</returns>
+        public static Dictionary<Categorie, List<Film>> GetFilmsByCategorie()
+        {
+            Dictionary<Categorie, List<Film>> dico = new Dictionary<Categorie, List<Film>>();
+            var categories = Enum.GetValues(typeof(Categorie)).Cast<Categorie>().ToList();
+
+            foreach (Categorie e in categories)
+            {
+                var film = Database.Table<Film>().Where(f => f.Categorie.Equals(e));
+                List<Film> value = new List<Film>();
+
+                value.AddRange(film.ToList());
+                dico.Add(e, value);
+            }
+
+            return dico;
         }
     }
 

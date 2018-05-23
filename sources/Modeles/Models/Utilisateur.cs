@@ -63,5 +63,23 @@ namespace Models
         {
             return $"{Nom} {Prenom}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            if (obj is Utilisateur userObj)
+                return Id.Equals(userObj.Id);
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return 3 * Id + Pseudo.GetHashCode();
+        }
     }
 }

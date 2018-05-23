@@ -18,10 +18,14 @@ namespace Models
         [Column("date"), NotNull]
         public DateTime Sortie { get; private set; }
 
-        public Film(string titre, string realisateur, DateTime sortie)
+        [Column("categorie"), NotNull]
+        public Categorie Categorie { get; private set; }
+
+        public Film(string titre, string realisateur, Categorie cat, DateTime sortie)
         {
             Titre = titre;
             Realisateur = realisateur;
+            this.Categorie = cat;
             Sortie = sortie;
         }
 
@@ -29,6 +33,30 @@ namespace Models
             Titre = "ERROR";
             Realisateur = "ERROR";
             Sortie = DateTime.Now;
+            Categorie = Categorie.DEFAUT;
+        }
+
+        public override string ToString()
+        {
+            return $"{Titre} par {Realisateur} : ({Categorie})";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            if (obj is Film filmObj)
+                return Id.Equals(filmObj.Id);
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return 3 * Id + Titre.GetHashCode();
         }
     }
 }

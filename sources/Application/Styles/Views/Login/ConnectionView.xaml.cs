@@ -19,6 +19,9 @@ namespace Views
             DataContext = this;
         }
 
+        /// <summary>
+        /// Méthode appelée quand on clique sur le bouton Se connecter
+        /// </summary>
         public void Login_Click(object sender, RoutedEventArgs args)
         {
             var win = (Application.Current.MainWindow as MetroWindow);
@@ -44,6 +47,9 @@ namespace Views
             }
         }
 
+        /// <summary>
+        /// Méthode appelée quand on clique sur le bouton inscription
+        /// </summary>
         public void Register_Click(object sender, RoutedEventArgs args)
         {
             ControlSwitcher.Switch(new RegistrationView(), false);
