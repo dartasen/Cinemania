@@ -4,6 +4,7 @@ using System.IO;
 using Models;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Managers
 {
@@ -54,11 +55,11 @@ namespace Managers
         /// <returns>Retourne l'utilisateur correspondant au doublon</returns>
         public static Utilisateur CheckUser(string pseudo, string mdp)
         {
-            var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
+            var query = Database.Table<Utilisateur>().Single(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
 
-            if (query.Count() > 0)
+            if (query != null)
             {
-                return query.First();
+                return query;
             }
 
             return null;

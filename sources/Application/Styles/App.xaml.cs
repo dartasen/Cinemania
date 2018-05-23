@@ -12,6 +12,6 @@ namespace Styles
 {
     public partial class App : Application
     {
-        
+         
     }
 }

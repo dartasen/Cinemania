@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using Managers;
 using Models;
+using Models.Events;
 
 namespace Views
 {
@@ -24,6 +27,10 @@ namespace Views
 
             ControlSwitcher.Main = this;
             DataContext = this;
+
+
+            UserChangedEvent.Instance.UserChanged += OnUserChanged;
+
             StockageBDD.Init();
 
             //TODO : Insertion à virer après les tests
@@ -36,8 +43,17 @@ namespace Views
             ListeFilms = StockageBDD.GetFilms();
         }
 
+        private void OnUserChanged(object sender, UserChangedEventArgs e)
+        {
+            CurrentUser = e.NewUser;
+            Navigate(new MenuView());
+        }
+
         public void Navigate(UserControl nextPage, bool sidebar = true)
         {
+            if (nextPage == null)
+                throw new ArgumentNullException("Le UserControl ne peut-être nul pour la navigation");
+
             if (sidebar)
             {
                 this.UC_Sidebar = nextPage;

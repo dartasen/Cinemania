@@ -15,11 +15,11 @@ namespace Stockage.Managers.Test
         /// Vérifie que l'insertion des utilisateurs fonctionne correctement
         /// </summary>
         [TestMethod]
-        public void CreateUsersSuccess()
+        public void CreateUserSuccess()
         {
             int test = -1;
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 2; i++)
             {
                 test = db.Insert(new Utilisateur("pseudo" + i, "Nom" + i, "Prenom" + i, "123soleil"));
                 Assert.IsTrue(test > 0);
@@ -49,13 +49,27 @@ namespace Stockage.Managers.Test
         {
             Utilisateur connect;
 
-            CreateUsersSuccess();
-
             connect = StockageBDD.CheckUser("pseudo0", "123soleil");
             Assert.IsNotNull(connect);
 
             connect = StockageBDD.CheckUser("admin", "uselessmdp");
             Assert.IsNull(connect);
+        }
+
+        [TestMethod]
+        public void CheckUserExist()
+        {
+            bool exist;
+
+            int test = db.Insert(new Utilisateur("test0", "test0", "test0", "test0"));
+            Assert.IsTrue(test > 0);
+
+            exist = StockageBDD.CheckIfUserExists("test0");
+            Assert.IsTrue(exist);
+
+            db.Table<Utilisateur>().Delete(u => u.Pseudo.Equals("test0"));
+            exist = StockageBDD.CheckIfUserExists("test0");
+            Assert.IsFalse(exist);
         }
     }
 }

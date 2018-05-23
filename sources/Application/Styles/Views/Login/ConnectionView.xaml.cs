@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Controls;
 using Styles.Views;
+using Models.Events;
 
 namespace Views
 {
@@ -33,9 +34,7 @@ namespace Views
 
             if (user != null)
             {
-                MainView.CurrentUser = user;
-                Switch(new MenuView());
-
+                UserChangedEvent.Instance.User = user;
                 win.ShowMessageAsync("Authentification réussie", "Ouiiiiiiiiiiii !");
             }
             else

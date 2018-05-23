@@ -25,6 +25,10 @@ namespace Models
             Sortie = sortie;
         }
 
-        public Film() { }
+        public Film() {
+            Titre = "ERROR";
+            Realisateur = "ERROR";
+            Sortie = DateTime.Now;
+        }
     }
 }

@@ -58,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categorie.cs" />
+    <Compile Include="Events\UserChangedEvent.cs" />
+    <Compile Include="Events\UserChangedEventArgs.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

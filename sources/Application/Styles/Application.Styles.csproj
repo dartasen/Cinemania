@@ -90,6 +90,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ControlSwitcher.cs" />
     <Compile Include="Views\Admin\FilmManagerView.xaml.cs">
       <DependentUpon>FilmManagerView.xaml</DependentUpon>
     </Compile>
@@ -147,7 +148,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlSwitcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -188,9 +188,6 @@
       <Project>{6ec6ef78-0227-4d63-a457-d8fbfbae52b0}</Project>
       <Name>Stockage.Managers</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />

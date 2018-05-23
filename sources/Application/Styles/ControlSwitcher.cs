@@ -1,5 +1,7 @@
 ﻿using System;
+
 using System.Windows.Controls;
+
 using Views;
 
 namespace Models
@@ -18,6 +20,9 @@ namespace Models
         /// <param name="uc">Le UserControl a afficher</param>
         public static void Switch(UserControl uc, bool sidebar = true)
         {
+            if (uc == null)
+                throw new ArgumentNullException("Le UserControl ne peut-être nul pour la navigation");
+
             if (Main != null)
             {
                 Main.Navigate(uc, sidebar);
