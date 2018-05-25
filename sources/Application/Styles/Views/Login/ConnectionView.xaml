@@ -36,7 +36,7 @@
             </StackPanel>
         </Border>
 
-        <Button Click="Login_Click" IsDefault="True" Content="Se connecter"/>
-        <Button Click="Register_Click" Content="S'inscrire" />
+        <Button Style="{StaticResource btn}" Click="Login_Click" IsDefault="True" Content="Se connecter"/>
+        <Button Style="{StaticResource btn}" Click="Register_Click" Content="S'inscrire" />
     </StackPanel>
 </UserControl>

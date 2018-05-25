@@ -18,10 +18,10 @@
         </StackPanel>
 
         <StackPanel>
-            <Button Click="Account_Click"  Content="Mon compte"/>
-            <Button Click="Favoris_Click" Content="Mes favoris"/>
-            <Button Click="Logout_Click" Content="Déconnexion"/>
-            <Button Click="Admin_Click" Name="admin_Btn" Visibility="Collapsed" Content="Administration"/>
+            <Button Style="{StaticResource btn}" Click="Account_Click"  Content="Mon compte"/>
+            <Button Style="{StaticResource btn}" Click="Favoris_Click" Content="Mes favoris"/>
+            <Button Style="{StaticResource btn}" Click="Logout_Click" Content="Déconnexion"/>
+            <Button Style="{StaticResource btn}" Click="Admin_Click" Name="admin_Btn" Visibility="Collapsed" Content="Administration"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

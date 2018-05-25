@@ -16,33 +16,24 @@ namespace Views
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<Film> ListeFilms { get; private set; }
         public Control UC_Sidebar { get; private set; } = new ConnectionView();
-        public Control UC_Main { get; private set; } = new FilmView();
         public static Utilisateur CurrentUser { get; set; }
+        public Control UC_Main { get; private set; }
+
 
         public MainView()
         {
             InitializeComponent();
 
+            StockageBDD.Init();
+            StockageBDD.ServiceInit();
+
+            UC_Main = new FilmView();
+
             ControlSwitcher.Main = this;
             DataContext = this;
 
             UserChangedEvent.Instance.UserChanged += OnUserChanged;
-
-            StockageBDD.Init();
-
-            //TODO : Insertion à virer après les tests
-            StockageBDD.Insert<Utilisateur>(new Utilisateur("test", "MF", "S", "test"));
-            StockageBDD.Insert<Utilisateur>(new Utilisateur("admin", "ad", "min", "admin", true));
-            StockageBDD.Insert<Film>(new Film("Perdu dans l'espace", "b", Categorie.ACTION, System.DateTime.Now));
-            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.ACTION, System.DateTime.Now));
-            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.AVENTURE, System.DateTime.Now));
-            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, System.DateTime.Now));
-            StockageBDD.Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, System.DateTime.Now));
-            //
-
-            ListeFilms = StockageBDD.GetFilms();
         }
 
         /// <summary>

@@ -3,6 +3,7 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using Managers;
 using Models;
+using Models.Events;
 using System.Windows;
 using System.Windows.Controls;
 using Views;
@@ -28,8 +29,7 @@ namespace Styles.Views
             if (string.IsNullOrEmpty(pseudo) || string.IsNullOrEmpty(nom) || string.IsNullOrEmpty(prenom) || string.IsNullOrEmpty(mdp))
             {
                 win.ShowMessageAsync("Erreur lors de l'inscription", "Merci de renseigner tout les champs :@");
-
-                MotDePasse.Password = "";
+                MotDePasse.Clear();
 
                 return;
             }
@@ -44,15 +44,15 @@ namespace Styles.Views
             {
                 win.ShowMessageAsync("Erreur lors de l'inscription", "Un utilisateur avec ce pseudo existe déjà");
 
-                MotDePasse.Password = "";
-                Pseudo.Text = "";
+                MotDePasse.Clear();
+                Pseudo.Clear();
 
                 return;
             }
 
-            Utilisateur u = new Utilisateur(pseudo, nom, prenom, mdp);
+            Utilisateur user = new Utilisateur(pseudo, nom, prenom, mdp);
 
-            int insert = StockageBDD.Insert<Utilisateur>(u);
+            int insert = StockageBDD.Insert<Utilisateur>(user);
 
             if (insert < 0)
             {
@@ -60,8 +60,7 @@ namespace Styles.Views
                 return;
             }
 
-            MainView.CurrentUser = u;
-            Switch(new MenuView(), true);
+            UserChangedEvent.Instance.User = user;
             Switch(new FilmView(), false);
         }
 

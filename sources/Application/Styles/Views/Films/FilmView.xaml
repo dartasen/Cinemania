@@ -8,25 +8,32 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="2">
-            <ItemsControl ItemsSource="{Binding ListeFilms}">
+        <!--<Border BorderBrush="Black" BorderThickness="2">-->
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsSource="{Binding ListeFilms}" SelectedItem="{Binding SelectedFilm}" IsSynchronizedWithCurrentItem="True">
 
-                <ItemsControl.ItemsPanel>
+            <ListView.Resources>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+            </ListView.Resources>
+            
+            <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
                     </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                </ListView.ItemsPanel>
 
-                <ItemsControl.ItemTemplate>
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="10">
+                        <StackPanel MaxWidth="150" Margin="9">
                             <Rectangle Fill="White" Height="100" Width="70" />
-                            <Label Foreground="#000" MaxWidth="120" Content="{Binding Titre}" />
+                            <TextBlock Foreground="#000" MaxWidth="100" TextWrapping="WrapWithOverflow" Text="{Binding Titre}"/>
                         </StackPanel>
                     </DataTemplate>
-                </ItemsControl.ItemTemplate>
 
-            </ItemsControl>
-        </Border>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        <!--</Border>-->
     </Grid>
 </UserControl>

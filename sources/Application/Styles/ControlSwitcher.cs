@@ -1,7 +1,5 @@
 ﻿using System;
-
 using System.Windows.Controls;
-
 using Views;
 
 namespace Models

@@ -1,38 +1,35 @@
 ﻿using Interfaces;
+using Managers;
 using Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Views
 {
     public partial class FilmView : UserControl, ISwitch
     {
+        public ObservableCollection<Film> ListeFilms { get; private set; } = StockageBDD.GetFilms();
 
-        public ObservableCollection<Film> Films
+        private Film _selectedFilm;
+        public Film SelectedFilm
         {
-            get => (ObservableCollection<Film>) GetValue(FilmsProperty);
-            set => SetValue(FilmsProperty, value);
+            get
+            {
+                return _selectedFilm;
+            }
+           
+            set
+            {
+                _selectedFilm = value;
+                Switch(new FilmOverview(value), false);
+            }
         }
-
-        public static readonly DependencyProperty FilmsProperty =
-            DependencyProperty.Register("Films", typeof(ObservableCollection<Film>), typeof(FilmView), null);
 
         public FilmView()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         public void Switch(UserControl uc, bool sidebar = true) => ControlSwitcher.Switch(uc, sidebar);

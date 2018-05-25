@@ -45,5 +45,11 @@
     <Compile Include="ISwitch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Modeles.Models.csproj">
+      <Project>{7336BAC7-2AB0-431F-83C1-7CFA66FBB69A}</Project>
+      <Name>Modeles.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

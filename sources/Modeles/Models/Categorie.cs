@@ -10,8 +10,12 @@ namespace Models
         HORREUR,
         POLICIER,
         FANTAISIE,
+        SIENSSEPHIXION,
+        ROMANTIQUE,
         COMEDIE,
         GUERRE,
+        JAPONIAISERIE,
+        TELLECHARGÉILEGALLEMAN,
         DEFAUT
     }
 }

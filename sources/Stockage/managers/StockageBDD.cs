@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Managers
 {
-    public static class StockageBDD
+    public static class StockageBDD 
     {
         private const string DatabaseFile = "db.sqlite";
         public static SQLiteConnection Database { get; private set; }
@@ -37,14 +37,35 @@ namespace Managers
             return Database;
         }
 
+        public static void ServiceInit()
+        {
+            //TODO : Insertion à virer après les tests
+            Insert<Utilisateur>(new Utilisateur("test", "MF", "S", "test"));
+            Insert<Utilisateur>(new Utilisateur("admin", "ad", "min", "admin", true));
+            Insert<Film>(new Film("Perdu dans l'espace", "b", Categorie.ACTION, DateTime.Now));
+            Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.ACTION, DateTime.Now));
+            Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.AVENTURE, DateTime.Now));
+            Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, DateTime.Now));
+            Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, DateTime.Now));
+            //
+        }
+
         /// <summary>
         /// Permet d'insérer un objet dans la base de donnée
         /// </summary>
         /// 
         /// <typeparam name="T">Le type objet qui visera une table de la base de donnée</typeparam>
         /// <param name="u">L'objet a inséré</param>
+        /// 
+        /// <exception cref="ArgumentNullException">Exception déclenchée quand l'objet a inséré est null</exception>
         /// <returns>Retourne un nombre signifiant l'état de l'insertion</returns>
-        public static int Insert<T>(T u) => Database.Insert(u);
+        public static int Insert<T>(T u)
+        {
+            if (u == null)
+                throw new ArgumentNullException(nameof(u));
+
+            return Database.Insert(u);
+        }
 
         /// <summary>
         /// Vérifie si un doublon pseudo/mdp existe dans la Base De Donnée
@@ -55,6 +76,11 @@ namespace Managers
         /// <returns>Retourne l'utilisateur correspondant au doublon</returns>
         public static Utilisateur CheckUser(string pseudo, string mdp)
         {
+            if (string.IsNullOrEmpty(pseudo) || string.IsNullOrEmpty(mdp))
+            {
+                return null;
+            }
+
             var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo) && u.Password.Equals(mdp));
 
             if (query.Count() > 0)
@@ -73,6 +99,11 @@ namespace Managers
         /// <returns>Retourne "true" si l'utilisateur existe sinon "false"</returns>
         public static bool CheckIfUserExists(string pseudo)
         {
+            if (string.IsNullOrEmpty(pseudo))
+            {
+                return false;
+            }
+
             var query = Database.Table<Utilisateur>().Where(u => u.Pseudo.Equals(pseudo));
 
             if (query.Count() > 0)
@@ -82,7 +113,29 @@ namespace Managers
 
             return false;
         }
-        
+
+        /// <summary>
+        /// Vérifie si le film existe dans la base de donnée
+        /// </summary>
+        /// 
+        /// <param name="id">id du film</param>
+        /// <returns>Retourne l'utilisateur correspondant au doublon</returns>
+        public static Film CheckFilm(int id)
+        {
+            if (id < 0)
+            {
+                return null;
+            }
+
+            var query = Database.Table<Film>().Where(f => f.Id.Equals(id));
+
+            if (query.Count() > 0)
+            {
+                return query.First();
+            }
+
+            return null;
+        }
         /// <summary>
         /// Retourne la liste de film contenue dans la Base De Donnée
         /// </summary>
@@ -90,7 +143,14 @@ namespace Managers
         /// <returns>La collection observable des films</returns>
         public static ObservableCollection<Film> GetFilms()
         {
-            var list = Database.Query<Film>("SELECT * FROM Film ORDER BY titre");
+            List<Film> list = new List<Film>();
+
+            try
+            {
+                var temp = Database.Query<Film>("SELECT * FROM Film ORDER BY titre");
+                list.AddRange(temp);
+            } catch (Exception) { }
+
             return new ObservableCollection<Film>(list);
         }
 

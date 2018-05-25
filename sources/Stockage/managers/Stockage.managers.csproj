@@ -68,6 +68,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Modeles\Interfaces\Modeles.Interfaces.csproj">
+      <Project>{2B675900-3D53-43B4-9B3C-B784A6AF45BB}</Project>
+      <Name>Modeles.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Modeles\Models\Modeles.Models.csproj">
       <Project>{7336BAC7-2AB0-431F-83C1-7CFA66FBB69A}</Project>
       <Name>Modeles.Models</Name>

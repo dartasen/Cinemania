@@ -73,9 +73,9 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            
-            <Button Grid.Column="0" Click="Registration_Click" IsDefault="True" Content="S'inscrire"/>
-            <Button Grid.Column="1" Click="Back_Click" Content="Annuler" />
+
+            <Button Grid.Column="0" Style="{StaticResource btn}" Click="Registration_Click" IsDefault="True" Content="S'inscrire"/>
+            <Button Grid.Column="1" Style="{StaticResource btn}" Click="Back_Click" Content="Annuler" />
         </Grid>
     </StackPanel>
 </UserControl>

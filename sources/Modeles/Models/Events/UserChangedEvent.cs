@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.Events
 {
@@ -21,7 +17,7 @@ namespace Models.Events
 
             set
             {
-                if (value == user)
+                if (value == user || value == null)
                 {
                     return;
                 }

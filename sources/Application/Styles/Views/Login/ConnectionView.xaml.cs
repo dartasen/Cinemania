@@ -42,7 +42,7 @@ namespace Views
             }
             else
             {
-                MotDePasse.Password = "";
+                MotDePasse.Clear();
                 win.ShowMessageAsync("Erreur lors de l'authentification", "Mot de passe incorrect :(");
             }
         }
