@@ -34,11 +34,6 @@ namespace Managers
             Database.CreateTable<Utilisateur>();
             Database.CreateTable<Film>();
 
-            return Database;
-        }
-
-        public static void ServiceInit()
-        {
             //TODO : Insertion à virer après les tests
             Insert<Utilisateur>(new Utilisateur("test", "MF", "S", "test"));
             Insert<Utilisateur>(new Utilisateur("admin", "ad", "min", "admin", true));
@@ -48,6 +43,8 @@ namespace Managers
             Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, DateTime.Now));
             Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, DateTime.Now));
             //
+
+            return Database;
         }
 
         /// <summary>
@@ -67,6 +64,25 @@ namespace Managers
             return Database.Insert(u);
         }
 
+
+        /// <summary>
+        /// Retourne la liste de film contenue dans la Base De Donnée
+        /// </summary>
+        /// 
+        /// <returns>La collection observable des films</returns>
+        public static ObservableCollection<Film> GetUsers()
+        {
+            List<Utilisateur> list = new List<Utilisateur>();
+
+            try
+            {
+                var temp = Database.Query<Utilisateur>("SELECT * FROM Utilisateur ORDER BY id");
+                list.AddRange(temp);
+            }
+            catch (Exception) { }
+
+            return null;
+        }
         /// <summary>
         /// Vérifie si un doublon pseudo/mdp existe dans la Base De Donnée
         /// </summary>
@@ -136,6 +152,7 @@ namespace Managers
 
             return null;
         }
+
         /// <summary>
         /// Retourne la liste de film contenue dans la Base De Donnée
         /// </summary>

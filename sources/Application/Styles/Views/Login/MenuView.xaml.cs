@@ -50,7 +50,14 @@ namespace Views
         /// </summary>
         private void Admin_Click(object sender, RoutedEventArgs e)
         {
-            Switch(new FilmManagerView(), false);
+            if (MainView.CurrentUser.IsAdmin)
+            {
+                Switch(new AdminView(), false);
+            } else
+            {
+                var win = (Application.Current.MainWindow as MetroWindow);
+                win.ShowMessageAsync("NON NON ET NON", "Vous n'avez pas les droits pour accèder à cette page");
+            }
         }
 
         public void Switch(UserControl uc, bool sidebar = true) => ControlSwitcher.Switch(uc, sidebar);

@@ -13,16 +13,38 @@
         </Style>
     </UserControl.Resources>
 
-    <StackPanel>
-        <Label HorizontalAlignment="Center" FontSize="18" Content="{Binding Titre}"/>
-
-        <StackPanel>
-            <Rectangle Fill="White" Height="100" Width="80" />
-
-            <Label Style="{StaticResource Sublabel}" ContentStringFormat="Date de sortie {0}" Content="{Binding Sortie}" />
-            <Label Style="{StaticResource Sublabel}" ContentStringFormat="De {0}" Content="{Binding Realisateur}" />
-            <Label Style="{StaticResource Sublabel}" ContentStringFormat="Genres {0}" Content="{Binding Categorie}" />
+    <DockPanel>
+        <StackPanel Margin="10" Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <Button Click="Return_Button_Click">
+                <Button.OpacityMask>
+                    <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_undo}" />
+                </Button.OpacityMask>
+            </Button>
+            
+            <Label HorizontalAlignment="Center" FontSize="19" Foreground="Black" FontStyle="Italic" Content="{Binding Titre}"/>
         </StackPanel>
-    </StackPanel>
+
+        <Grid DockPanel.Dock="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <Image Grid.Column="0" VerticalAlignment="Center" Source="{Binding Img}" Height="233" Width="315"/>
+
+            <StackPanel Grid.Column="1">
+                <Label Style="{StaticResource Sublabel}" ContentStringFormat="Date de sortie {0}" Content="{Binding Sortie, StringFormat=d}" />
+                <Label Style="{StaticResource Sublabel}" ContentStringFormat="De {0}" Content="{Binding Realisateur}" />
+                <Label Style="{StaticResource Sublabel}" ContentStringFormat="Genres {0}" Content="{Binding Categorie}" />
+
+                <Button Style="{StaticResource btn}" Margin="10" MaxWidth="150" Content="Bande-annonce"/>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
     
 </UserControl>

@@ -2,16 +2,15 @@
 using Managers;
 using Models;
 using System.Collections.ObjectModel;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace Views
 {
-    public partial class FilmManagerView : UserControl, ISwitch
+    public partial class UserManagerView : UserControl, ISwitch
     {
-        public Collection<Film> Films { get; } = StockageBDD.GetFilms();
+        public Collection<Utilisateur> Users { get; }
 
-        public FilmManagerView()
+        public UserManagerView()
         {
             InitializeComponent();
             DataContext = this;

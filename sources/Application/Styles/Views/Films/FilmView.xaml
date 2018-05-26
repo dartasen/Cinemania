@@ -8,32 +8,44 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        <!--<Border BorderBrush="Black" BorderThickness="2">-->
-        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsSource="{Binding ListeFilms}" SelectedItem="{Binding SelectedFilm}" IsSynchronizedWithCurrentItem="True">
+        <ListView Background="Transparent" ItemsSource="{Binding ListeFilms}" SelectedItem="{Binding SelectedFilm}" IsSynchronizedWithCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
             <ListView.Resources>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Background" Value="Transparent" />
                 </Style>
+
+                <Style TargetType="TextBlock" x:Key="FilmTextBlock">
+                    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+                    <Setter Property="MaxWidth" Value="150" />
+                    <Setter Property="Padding" Value="12,0,0,0"/>
+                </Style>
             </ListView.Resources>
-            
+
             <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel MaxWidth="150" Margin="9">
-                            <Rectangle Fill="White" Height="100" Width="70" />
-                            <TextBlock Foreground="#000" MaxWidth="100" TextWrapping="WrapWithOverflow" Text="{Binding Titre}"/>
-                        </StackPanel>
-                    </DataTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
 
-                </ListView.ItemTemplate>
+                        <Image Grid.Row="0" Source="{Binding Img}" Height="170" Width="150" Margin="5"/>
 
-            </ListView>
-        <!--</Border>-->
+                        <TextBlock Grid.Row="1" Text="{Binding Titre}" Foreground="#333" Style="{StaticResource FilmTextBlock}" />
+                        <TextBlock Grid.Row="2" Text="{Binding Realisateur, StringFormat='De {0}'}" Foreground="#b3b3b3" Style="{StaticResource FilmTextBlock}" FontSize="12" />
+                    </Grid>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
     </Grid>
 </UserControl>

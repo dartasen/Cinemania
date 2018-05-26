@@ -26,7 +26,6 @@ namespace Views
             InitializeComponent();
 
             StockageBDD.Init();
-            StockageBDD.ServiceInit();
 
             UC_Main = new FilmView();
 

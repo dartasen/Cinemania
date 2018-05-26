@@ -25,6 +25,11 @@ namespace Views
             DataContext = CurrentFilm;
         }
 
+        private void Return_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Switch(new FilmView(), false);
+        }
+
         public void Switch(UserControl uc, bool sidebar = true) => ControlSwitcher.Switch(uc, sidebar);
     }
 }

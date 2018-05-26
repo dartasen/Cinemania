@@ -6,6 +6,9 @@ namespace Models
     [Table("Film")]
     public class Film
     {
+        [Column("Image"), NotNull]
+        public string Img { get; } = "pack://application:,,,/Resources/testimg.png";
+
         [PrimaryKey, AutoIncrement, Column("id")]
         public int Id { get; private set; }
 
@@ -21,6 +24,9 @@ namespace Models
         [Column("categorie"), NotNull]
         public Categorie Categorie { get; private set; }
 
+        [Column("Synopsis")]
+        public string Synopsis { get; private set; }
+
         public Film(string titre, string realisateur, Categorie cat, DateTime sortie)
         {
             Titre = titre;
@@ -34,6 +40,7 @@ namespace Models
             Realisateur = "ERROR";
             Sortie = DateTime.Now;
             Categorie = Categorie.DEFAUT;
+            Synopsis = ":( 404 NOT FOUND ):";
         }
 
         public override string ToString()
