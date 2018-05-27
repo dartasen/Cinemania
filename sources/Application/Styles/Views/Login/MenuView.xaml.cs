@@ -1,7 +1,7 @@
-﻿using Interfaces;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using Models;
+using Models.Interfaces;
 using Styles.Views;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,8 +23,9 @@ namespace Views
         /// </summary>
         private void Logout_Click(object sender, RoutedEventArgs args)
         {
+            MainView.CurrentUser.Logout();
             MainView.CurrentUser = null;
-            Switch(new ConnectionView()); 
+            Switch(new ConnectionView());
         }
 
         /// <summary>

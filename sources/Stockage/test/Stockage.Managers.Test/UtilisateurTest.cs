@@ -1,21 +1,17 @@
-﻿using Managers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 using SQLite;
 
-namespace Stockage.Managers.Test
+namespace Managers.Test
 {
     [TestClass]
-    public class UtilisateurTest
+    public class UtilisateurTest : AppTest
     {
-
-        public SQLiteConnection db = StockageBDD.Init();
-
         /// <summary>
         /// Vérifie que l'insertion des utilisateurs fonctionne correctement
         /// </summary>
         [TestMethod, Priority(2)]
-        public void CreateUserSuccess()
+        protected void CreateUserSuccess()
         {
             int test = -1;
 
@@ -32,7 +28,7 @@ namespace Stockage.Managers.Test
         /// Vérifie que la sélection dans la Base De Donnée avec LinQ via l'interface des tables fonctionne
         /// </summary>
         [TestMethod, Priority(1)]
-        public void LinQBeyondUsersSuccess()
+        protected void LinQBeyondUsersSuccess()
         {
             int test = db.Insert(new Utilisateur("toto", "titi", "titi", "1234", true));
 
@@ -45,7 +41,7 @@ namespace Stockage.Managers.Test
         /// Verifie si le mécanisme de login fonctionne
         /// </summary>
         [TestMethod]
-        public void UserLoginSuccess()
+        protected void UserLoginSuccess()
         {
             Utilisateur connect;
 
@@ -60,7 +56,7 @@ namespace Stockage.Managers.Test
         /// Vérifie si un utilisateur existe dans la database
         /// </summary>
         [TestMethod]
-        public void CheckUserExist()
+        protected void CheckUserExist()
         {
             bool exist;
 

@@ -31,7 +31,7 @@ namespace Models
         {
             Titre = titre;
             Realisateur = realisateur;
-            this.Categorie = cat;
+            Categorie = cat;
             Sortie = sortie;
         }
 

@@ -1,6 +1,6 @@
-﻿using Interfaces;
-using Managers;
+﻿using Managers;
 using Models;
+using Models.Interfaces;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;

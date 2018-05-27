@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Linq;
-using Managers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 using SQLite;
 
-namespace Stockage.Managers.Test
+namespace Managers.Test
 {
     [TestClass]
-    public class FilmTest
+    public class FilmTest : AppTest
     {
-        public SQLiteConnection db = StockageBDD.Init();
 
         /// <summary>
         /// Vérifie l'insertion d'un film dans la Base De Donnée
         /// </summary>
         [TestMethod, Priority(1)]
-        public void InsertFilmSuccess()
+        protected void InsertFilmSuccess()
         {
             db.Insert(new Film("Bonjour", "Hasbani", Categorie.THRILL, DateTime.Now));
             db.Insert(new Film("Bonjoure", "Hsbani", Categorie.ACTION, DateTime.Now));
@@ -38,7 +36,7 @@ namespace Stockage.Managers.Test
         /// Vérifie si l'on peut récupérer correctement un dictionnary associant une catégorie à sa liste de film
         /// </summary>
         [TestMethod]
-        public void GetFilmsByCategoriesSuccess()
+        protected void GetFilmsByCategoriesSuccess()
         {
             var dico = StockageBDD.GetFilmsByCategorie();
 

@@ -1,13 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
+using SQLite;
 using Views;
 
-namespace Stockage.Managers.Test
+namespace Managers.Test
 {
     [TestClass]
     public class AppTest
     {
+        protected static SQLiteConnection db = StockageBDD.Init();
+
         /// <summary>
         /// On teste un cas aux limites en essayant de changer de vue 
         /// sur ControlSwitcher sans avoir instancier le Main à l'intérieur

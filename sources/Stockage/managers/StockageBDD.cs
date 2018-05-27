@@ -14,11 +14,11 @@ namespace Managers
         public static SQLiteConnection Database { get; private set; }
 
         /// <summary>
-        /// Initialise la base de donnée SQLITE
+        /// Initialise la base de données en SQLITE
         /// </summary>
         /// 
-        /// <exception cref="Exception">Exception déclenchée quand la Base de Donnée ne peut-être créée</exception>
-        /// <returns>Retourne une instance unique de la Base De Donnée</returns>
+        /// <exception cref="Exception">Exception déclenchée quand la Base de Données ne peut-être créée</exception>
+        /// <returns>Retourne une instance unique de la Base De Données</returns>
         public static SQLiteConnection Init()
         {
             if (Database != null)
@@ -48,7 +48,7 @@ namespace Managers
         }
 
         /// <summary>
-        /// Permet d'insérer un objet dans la base de donnée
+        /// Permet d'insérer un objet dans la base de données
         /// </summary>
         /// 
         /// <typeparam name="T">Le type objet qui visera une table de la base de donnée</typeparam>
@@ -66,11 +66,11 @@ namespace Managers
 
 
         /// <summary>
-        /// Retourne la liste de film contenue dans la Base De Donnée
+        /// Retourne la liste des utilisateurs contenus dans la Base De Données
         /// </summary>
         /// 
-        /// <returns>La collection observable des films</returns>
-        public static ObservableCollection<Film> GetUsers()
+        /// <returns>La collection observable des utilisateurs</returns>
+        public static ObservableCollection<Utilisateur> GetUsers()
         {
             List<Utilisateur> list = new List<Utilisateur>();
 
@@ -81,10 +81,10 @@ namespace Managers
             }
             catch (Exception) { }
 
-            return null;
+            return new ObservableCollection<Utilisateur>(list);
         }
         /// <summary>
-        /// Vérifie si un doublon pseudo/mdp existe dans la Base De Donnée
+        /// Vérifie si un doublon pseudo/mdp existe dans la Base De Données
         /// </summary>
         /// 
         /// <param name="pseudo">Le pseudo</param>
@@ -108,7 +108,7 @@ namespace Managers
         }
 
         /// <summary>
-        /// Vérifie si un utilisateur existe déjà dans la Base De Donnée
+        /// Vérifie si un utilisateur existe déjà dans la Base De Données
         /// </summary>
         /// 
         /// <param name="pseudo">Le pseudo de l'utilisateur</param>
@@ -131,7 +131,7 @@ namespace Managers
         }
 
         /// <summary>
-        /// Vérifie si le film existe dans la base de donnée
+        /// Vérifie si le film existe dans la base de données
         /// </summary>
         /// 
         /// <param name="id">id du film</param>
@@ -154,7 +154,7 @@ namespace Managers
         }
 
         /// <summary>
-        /// Retourne la liste de film contenue dans la Base De Donnée
+        /// Retourne la liste des films contenue dans la Base De Données
         /// </summary>
         /// 
         /// <returns>La collection observable des films</returns>
@@ -186,7 +186,9 @@ namespace Managers
                 var film = Database.Table<Film>().Where(f => f.Categorie.Equals(e));
                 List<Film> value = new List<Film>();
 
-                value.AddRange(film.ToList());
+                if (film != null)
+                    value.AddRange(film);
+
                 dico.Add(e, value);
             }
 

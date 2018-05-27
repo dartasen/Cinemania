@@ -1,4 +1,4 @@
-﻿using Interfaces;
+﻿using Models.Interfaces;
 using Managers;
 using Models;
 using System.Collections.ObjectModel;
@@ -8,7 +8,7 @@ namespace Views
 {
     public partial class UserManagerView : UserControl, ISwitch
     {
-        public Collection<Utilisateur> Users { get; }
+        public Collection<Utilisateur> Users { get; } = StockageBDD.GetUsers();
 
         public UserManagerView()
         {

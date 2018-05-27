@@ -1,4 +1,4 @@
-﻿using Interfaces;
+﻿using Models.Interfaces;
 using System;
 using System.Windows.Controls;
 using Views;
@@ -25,18 +25,13 @@ namespace Models
         {
             if (uc == null)
                 throw new ArgumentNullException("Le UserControl ne peut-être nul pour la navigation");
-            else if (!(uc is ISwitch)) {
+            else if (!(uc is ISwitch))
                 throw new ArgumentException("Le UserControl n'implémente pas l'interface ISwitch");
-            }
 
             if (Main != null)
-            {
                 Main.Navigate(uc, sidebar);
-            }
             else
-            {
                 throw new Exception("L'instance du pageSwitcher principal n'a pas été défini !");
-            }
         }
     }
 }

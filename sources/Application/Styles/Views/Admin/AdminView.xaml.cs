@@ -1,4 +1,4 @@
-﻿using Interfaces;
+﻿using Models.Interfaces;
 using Models;
 using System.ComponentModel;
 using System.Windows;
@@ -24,6 +24,10 @@ namespace Views
                 {
                     case 1:
                         UC_Admin = new FilmManagerView();
+                        break;
+
+                    case 2:
+                        UC_Admin = new UserManagerView();
                         break;
                     
                     default:

@@ -14,8 +14,6 @@ namespace Models
         ROMANTIQUE,
         COMEDIE,
         GUERRE,
-        JAPONIAISERIE,
-        TELLECHARGÉILEGALLEMAN,
         DEFAUT
     }
 }

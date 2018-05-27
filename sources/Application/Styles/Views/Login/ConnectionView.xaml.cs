@@ -1,12 +1,12 @@
-﻿using Interfaces;
-using Managers;
+﻿using Managers;
 using Models;
 using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Controls;
 using Styles.Views;
-using Models.Events;
+using Models.Event;
+using Models.Interfaces;
 
 namespace Views
 {
@@ -22,7 +22,7 @@ namespace Views
         /// <summary>
         /// Méthode appelée quand on clique sur le bouton Se connecter
         /// </summary>
-        public void Login_Click(object sender, RoutedEventArgs args)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
             var win = (Application.Current.MainWindow as MetroWindow);
             string pseudo = Pseudo.Text, mdp = MotDePasse.Password;
@@ -37,6 +37,8 @@ namespace Views
 
             if (user != null)
             {
+                user.Login();
+
                 UserChangedEvent.Instance.User = user;
                 win.ShowMessageAsync("Authentification réussie", "Ouiiiiiiiiiiii !");
             }
@@ -50,7 +52,7 @@ namespace Views
         /// <summary>
         /// Méthode appelée quand on clique sur le bouton inscription
         /// </summary>
-        public void Register_Click(object sender, RoutedEventArgs args)
+        private void Register_Click(object sender, RoutedEventArgs e)
         {
             ControlSwitcher.Switch(new RegistrationView(), false);
         }

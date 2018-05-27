@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Models.Events
+namespace Models.Event
 {
     public sealed class UserChangedEvent
     {

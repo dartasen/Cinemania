@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Models.Events
+namespace Models.Event
 {
     /// <summary>
     /// Classe propageant les arguments de l'évenement

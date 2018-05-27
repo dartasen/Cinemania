@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using Managers;
 using Models;
-using Models.Events;
+using Models.Event;
 
 namespace Views
 {

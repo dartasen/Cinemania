@@ -27,7 +27,7 @@ namespace Models
         public bool IsAdmin { get; private set; }
 
         [Column("isLogged")]
-        public bool IsLogged { get; set; }
+        public bool IsLogged { get; private set; }
 
         public Utilisateur(string pseudo, string nom, string prenom, string mdp, bool admin = false)
         {
