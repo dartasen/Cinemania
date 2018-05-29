@@ -92,6 +92,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ButtonList.xaml.cs">
+      <DependentUpon>ButtonList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ControlSwitcher.cs" />
     <Compile Include="Views\Admin\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
@@ -101,6 +104,9 @@
     </Compile>
     <Compile Include="Views\Admin\UserManagerView.xaml.cs">
       <DependentUpon>UserManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Films\CategorieView.xaml.cs">
+      <DependentUpon>CategorieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Films\FilmOverview.xaml.cs">
       <DependentUpon>FilmOverview.xaml</DependentUpon>
@@ -117,6 +123,10 @@
     <Compile Include="Views\Login\RegistrationView.xaml.cs">
       <DependentUpon>RegistrationView.xaml</DependentUpon>
     </Compile>
+    <Page Include="ButtonList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Admin\AdminView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\UserManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Films\CategorieView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

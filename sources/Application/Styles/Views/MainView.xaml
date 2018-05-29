@@ -47,19 +47,7 @@
                 </Border>
 
                 <!-- Menu de navigation (catégories, ..) -->
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-
-                    <Button Style="{StaticResource btn}" Grid.Row="0">Bandes annonces</Button>
-                    <Button Style="{StaticResource btn}" Grid.Row="1">Meilleurs films</Button>
-                    <Button Style="{StaticResource btn}" Grid.Row="2">Prochainement</Button>
-                    <Button Style="{StaticResource btn}" Grid.Row="3">Catégories</Button>
-                </Grid>
+                <local:ButtonList />
 
             </StackPanel>
         </Border>
@@ -67,7 +55,6 @@
         <!-- Main Content -->
         <DockPanel Background="#eeeeee">
             <ScrollBar DockPanel.Dock="Right" HorizontalAlignment="Right" />
-            <!--<local:FilmView Films="{Binding ListeFilms}" />-->
             <ContentPresenter Content="{Binding UC_Main}" />
         </DockPanel>
         

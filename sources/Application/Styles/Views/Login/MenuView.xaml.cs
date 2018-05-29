@@ -23,6 +23,9 @@ namespace Views
         /// </summary>
         private void Logout_Click(object sender, RoutedEventArgs args)
         {
+            if (MainView.CurrentUser.IsAdmin)
+                Switch(new FilmView(), false);
+
             MainView.CurrentUser.Logout();
             MainView.CurrentUser = null;
             Switch(new ConnectionView());
