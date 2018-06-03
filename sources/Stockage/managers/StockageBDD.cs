@@ -158,7 +158,7 @@ namespace Managers
         /// </summary>
         /// 
         /// <returns>La collection observable des films</returns>
-        public static ObservableCollection<Film> GetFilms()
+        public static ObservableCollection<Film> GetFilms(Categorie cat = Categorie.DEFAUT)
         {
             List<Film> list = new List<Film>();
 
@@ -167,6 +167,11 @@ namespace Managers
                 var temp = Database.Query<Film>("SELECT * FROM Film ORDER BY titre");
                 list.AddRange(temp);
             } catch (Exception) { }
+
+            if (cat != Categorie.DEFAUT)
+            {
+                list = list.Where(f => f.Categorie.Equals(cat)).ToList();
+            }
 
             return new ObservableCollection<Film>(list);
         }

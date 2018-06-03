@@ -12,13 +12,11 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
 
         <Button Style="{StaticResource btn}" Grid.Row="0">Bandes annonces</Button>
         <Button Style="{StaticResource btn}" Click="Film_Click" Grid.Row="1">Meilleurs films</Button>
-        <Button Style="{StaticResource btn}" Grid.Row="2">Prochainement</Button>
-        <Button Style="{StaticResource btn}" Grid.Row="3">Catégories</Button>
+        <Button Style="{StaticResource btn}" Click="Categorie_Click" Grid.Row="2">Catégories</Button>
     </Grid>
     
 </UserControl>

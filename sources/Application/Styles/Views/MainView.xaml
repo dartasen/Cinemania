@@ -53,8 +53,8 @@
         </Border>
 
         <!-- Main Content -->
-        <DockPanel Background="#eeeeee">
-            <ScrollBar DockPanel.Dock="Right" HorizontalAlignment="Right" />
+        <DockPanel Background="#eeeeee" LastChildFill="True">
+            <!--<ScrollBar DockPanel.Dock="Right" HorizontalAlignment="Right" />-->
             <ContentPresenter Content="{Binding UC_Main}" />
         </DockPanel>
         

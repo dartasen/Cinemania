@@ -11,6 +11,12 @@
                   AutoGenerateColumns="True" 
                   Style="{StaticResource AzureDataGrid}">
 
+        <DataGrid.Resources>
+            <ContextMenu x:Key="DataRowContextMenu" >
+                <MenuItem Header="Gérer les films"/>
+            </ContextMenu>
+        </DataGrid.Resources>
+
         <DataGrid.Columns>
             <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
                                         EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"

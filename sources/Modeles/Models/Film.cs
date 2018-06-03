@@ -39,7 +39,7 @@ namespace Models
             Titre = "ERROR";
             Realisateur = "ERROR";
             Sortie = DateTime.Now;
-            Categorie = Categorie.DEFAUT;
+            Categorie = Categorie.ACTION;
             Synopsis = ":( 404 NOT FOUND ):";
         }
 

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categorie.cs" />
+    <Compile Include="EnumExtension.cs" />
     <Compile Include="Events\UserChangedEvent.cs" />
     <Compile Include="Events\UserChangedEventArgs.cs" />
     <Compile Include="Film.cs" />

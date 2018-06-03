@@ -9,7 +9,14 @@
 
     <DataGrid ItemsSource="{Binding Users}" Margin="10,20,10,0" 
                   AutoGenerateColumns="True" 
-                  Style="{StaticResource AzureDataGrid}">
+                  Style="{StaticResource AzureDataGrid}"
+                  SelectedItem="{Binding selected}">
+
+        <DataGrid.Resources>
+            <ContextMenu x:Key="DataRowContextMenu" >
+                <MenuItem Header="Gérer les utilisateurs"/>
+            </ContextMenu>
+        </DataGrid.Resources>
 
         <DataGrid.Columns>
             <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
