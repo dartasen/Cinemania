@@ -37,11 +37,11 @@ namespace Managers
             //TODO : Insertion à virer après les tests
             Insert<Utilisateur>(new Utilisateur("test", "MF", "S", "test"));
             Insert<Utilisateur>(new Utilisateur("admin", "ad", "min", "admin", true));
-            Insert<Film>(new Film("Perdu dans l'espace", "b", Categorie.ACTION, DateTime.Now));
-            Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.ACTION, DateTime.Now));
-            Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.AVENTURE, DateTime.Now));
-            Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, DateTime.Now));
-            Insert<Film>(new Film("Bien le bonjour", "blb", Categorie.COMEDIE, DateTime.Now));
+            Insert<Film>(new Film("Solo : A StarWars Story", "Ron Howard", Categorie.SCIENCEFICTION, DateTime.Now, 0));
+            Insert<Film>(new Film("Deadpool 2", "David Leitch", Categorie.ACTION, DateTime.Now, 1));
+            Insert<Film>(new Film("Avengers 3 : Infinity War", "Marvel Studios", Categorie.ACTION, DateTime.Now, 2));
+            Insert<Film>(new Film("Ready Player One", "Steven Spielberg", Categorie.SCIENCEFICTION, DateTime.Now, 3));
+            Insert<Film>(new Film("13 RW", "Jay Asher", Categorie.THRILL, DateTime.Now, 4));
             //
 
             return Database;

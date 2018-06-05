@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Views"
+             xmlns:model="clr-namespace:Models.Converter;assembly=Models"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -24,7 +25,14 @@
             <Label HorizontalAlignment="Center" FontSize="19" Foreground="Black" FontStyle="Italic" Content="{Binding Titre}"/>
         </StackPanel>
 
-        <Image DockPanel.Dock="Left" VerticalAlignment="Top" Source="{Binding Img}" Height="265" Width="325"/>
+        <Image DockPanel.Dock="Left" VerticalAlignment="Top" Height="265" Width="325">
+            <Image.Resources>
+                <model:StringToFilmImageConverter x:Key="GetImagePathConverter"/>
+            </Image.Resources>
+            <Image.Source>
+                <Binding Path="Img" Converter="{StaticResource GetImagePathConverter}"/>
+            </Image.Source>
+        </Image>
 
         <StackPanel>
             <Label Style="{StaticResource Sublabel}" ContentStringFormat="Date de sortie: {0}" Content="{Binding Sortie, StringFormat='{}{0:dd/MM/yyyy}'}" />

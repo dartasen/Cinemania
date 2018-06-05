@@ -17,9 +17,9 @@ namespace Models
     {
         public static EnumAttr GetAttr(this Enum value)
         {
-            Type type = value.GetType();
-            FieldInfo fieldInfo = type.GetField(value.ToString());
-            var atts = (EnumAttr[])fieldInfo.GetCustomAttributes(typeof(EnumAttr), false);
+            FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
+            var atts = fieldInfo.GetCustomAttributes(typeof(EnumAttr), false) as EnumAttr[];
+
             return atts.Length > 0 ? atts[0] : null;
         }
     }

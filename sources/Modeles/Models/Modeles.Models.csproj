@@ -32,6 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="SQLite-net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\sqlite-net-pcl.1.4.118\lib\netstandard1.1\SQLite-net.dll</HintPath>
     </Reference>
@@ -63,6 +65,7 @@
     <Compile Include="Events\UserChangedEvent.cs" />
     <Compile Include="Events\UserChangedEventArgs.cs" />
     <Compile Include="Film.cs" />
+    <Compile Include="StringToFilmImageConverter.cs" />
     <Compile Include="Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using SQLite;
 
 namespace Models
@@ -6,11 +7,11 @@ namespace Models
     [Table("Film")]
     public class Film
     {
-        [Column("Image"), NotNull]
-        public string Img { get; } = "pack://application:,,,/Resources/testimg.png";
-
         [PrimaryKey, AutoIncrement, Column("id")]
         public int Id { get; private set; }
+
+        [Column("Img"), NotNull]
+        public int Img { get; private set; }
 
         [Column("titre"), NotNull, MaxLength(30)]
         public string Titre { get; private set; }
@@ -25,23 +26,30 @@ namespace Models
         public Categorie Categorie { get; private set; }
 
         [Column("Synopsis")]
-        public string Synopsis { get; private set; }
+        public string Synopsis { get
+            {
+                string path = "pack://application:,,,/Resources/Film/Synopsis/" + Id + ".txt";
 
-        public Film(string titre, string realisateur, Categorie cat, DateTime sortie)
+                if (!File.Exists(path))
+                    return "ERROR";
+
+                using (StreamReader film = File.OpenText(path))
+                {
+                    return film.ReadToEnd();
+                }
+            }
+        }
+
+        public Film(string titre, string realisateur, Categorie cat, DateTime sortie, int img)
         {
             Titre = titre;
             Realisateur = realisateur;
             Categorie = cat;
             Sortie = sortie;
+            Img = img;
         }
 
-        public Film() {
-            Titre = "ERROR";
-            Realisateur = "ERROR";
-            Sortie = DateTime.Now;
-            Categorie = Categorie.ACTION;
-            Synopsis = ":( 404 NOT FOUND ):";
-        }
+        public Film() {}
 
         public override string ToString()
         {

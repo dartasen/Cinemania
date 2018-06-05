@@ -232,9 +232,6 @@
   <ItemGroup>
     <Resource Include="Resources\porg.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\testimg.png" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Categorie\action-genre.jpg" />
@@ -248,6 +245,20 @@
     <Resource Include="Resources\Categorie\scifi-genre.jpg" />
     <Resource Include="Resources\Categorie\thriller-genre.jpg" />
     <Resource Include="Resources\Categorie\war-genre.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Film\Image\0.jpg" />
+    <Resource Include="Resources\Film\Image\1.jpg" />
+    <Resource Include="Resources\Film\Image\2.jpg" />
+    <Resource Include="Resources\Film\Image\3.jpg" />
+    <Resource Include="Resources\Film\Image\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Film\Synopsis\0.txt" />
+    <Resource Include="Resources\Film\Synopsis\1.txt" />
+    <Resource Include="Resources\Film\Synopsis\2.txt" />
+    <Resource Include="Resources\Film\Synopsis\3.txt" />
+    <Resource Include="Resources\Film\Synopsis\4.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\SQLitePCL.raw_basic.0.8.6\build\net45\SQLitePCL.raw_basic.targets" Condition="Exists('..\..\packages\SQLitePCL.raw_basic.0.8.6\build\net45\SQLitePCL.raw_basic.targets')" />
