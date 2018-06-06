@@ -11,7 +11,7 @@ namespace Models.Converter
         /// <summary>
         /// Chemin par défaut jusqu'au dossier des ressources
         /// </summary>
-        private const string path = "pack://application:,,,/Resources/Film/Synopsis/";
+        private const string path = "../../Resources/Film/{0}.txt";
 
         /// <summary>
         /// Le converteur est censé rencevoir l'ID du <see cref="Film"/>
@@ -19,20 +19,17 @@ namespace Models.Converter
         /// <returns>Renvoie le chemin absolue de l'image du film</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string synopsis = String.Format(path + "{0}.txt", value as int?);
+            string synopsis = String.Format(path, value as int?);
 
-            if (!File.Exists(synopsis))
-                return "ERROR";
-
-            using (StreamReader film = File.OpenText(path))
+            try
             {
-                return film.ReadToEnd();
-            } 
+                return File.ReadAllText(synopsis);
+            } catch (Exception)
+            {
+                return "ERROR";
+            }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return "";
-        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => "";
     }
 }

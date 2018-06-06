@@ -76,14 +76,17 @@
             </Border>
 
             <Label FontSize="19" Margin="0,20,0,20" Foreground="Black" FontStyle="Italic" Content="Synopsis"/>
-            <Label Foreground="Black">
-                <Label.Resources>
-                    <model:IdToFilmSynopsisConverter x:Key="GetSynopsisPathConverter"/>
-                </Label.Resources>
-                <Label.Content>
-                    <Binding Path="Img" Converter="{StaticResource GetSynopsisPathConverter}"/>
-                </Label.Content>
-            </Label>
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" Foreground="Black">
+                    <TextBlock.Resources>
+                        <model:IdToFilmSynopsisConverter x:Key="GetSynopsisPathConverter"/>
+                    </TextBlock.Resources>
+
+                    <TextBlock.Text>
+                        <Binding Path="Img" Converter="{StaticResource GetSynopsisPathConverter}"/>
+                    </TextBlock.Text>
+                </TextBlock>
+            </ScrollViewer>
         </StackPanel>
     </DockPanel>
     

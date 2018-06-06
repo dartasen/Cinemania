@@ -25,23 +25,6 @@ namespace Models
         [Column("categorie"), NotNull]
         public Categorie Categorie { get; private set; }
 
-        [Ignore]
-        public string Synopsis
-        {
-            get
-            {
-                string path = "pack://application:,,,/Resources/Film/Synopsis/" + Img + ".txt";
-
-                //if (!File.Exists(path))
-                //    return "ERROR";
-
-                using (StreamReader film = File.OpenText(path))
-                {
-                    return film.ReadToEnd();
-                }
-            }
-        }
-
         public Film(string titre, string realisateur, Categorie cat, DateTime sortie, int img)
         {
             Titre = titre;
