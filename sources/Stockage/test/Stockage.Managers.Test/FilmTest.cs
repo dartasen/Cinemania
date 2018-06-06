@@ -16,12 +16,12 @@ namespace Managers.Test
         [TestMethod, Priority(1)]
         protected void InsertFilmSuccess()
         {
-            db.Insert(new Film("Bonjour", "Hasbani", Categorie.THRILL, DateTime.Now));
-            db.Insert(new Film("Bonjoure", "Hsbani", Categorie.ACTION, DateTime.Now));
-            db.Insert(new Film("Bonjourd", "Hasni", Categorie.ACTION, DateTime.Now));
-            db.Insert(new Film("Bonjourf", "Hasani", Categorie.AVENTURE, DateTime.Now));
-            db.Insert(new Film("Bonoure", "Hsbni", Categorie.ACTION, DateTime.Now));
-            db.Insert(new Film("Bonjourg", "Hasbni", Categorie.FANTAISIE, DateTime.Now));
+            db.Insert(new Film("Bonjour", "Hasbani", Categorie.THRILL, DateTime.Now, 0));
+            db.Insert(new Film("Bonjoure", "Hsbani", Categorie.ACTION, DateTime.Now, 0));
+            db.Insert(new Film("Bonjourd", "Hasni", Categorie.ACTION, DateTime.Now, 0));
+            db.Insert(new Film("Bonjourf", "Hasani", Categorie.AVENTURE, DateTime.Now, 0));
+            db.Insert(new Film("Bonoure", "Hsbni", Categorie.ACTION, DateTime.Now, 0));
+            db.Insert(new Film("Bonjourg", "Hasbni", Categorie.FANTAISIE, DateTime.Now, 0));
 
             var films = StockageBDD.GetFilms();
             Assert.IsNotNull(films);

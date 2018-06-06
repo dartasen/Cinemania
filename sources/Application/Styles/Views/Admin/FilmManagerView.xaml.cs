@@ -9,6 +9,9 @@ namespace Views
 {
     public partial class FilmManagerView : UserControl, ISwitch
     {
+        /// <summary>
+        /// La liste des films à afficher
+        /// </summary>
         public Collection<Film> Films { get; } = StockageBDD.GetFilms();
 
         public FilmManagerView()

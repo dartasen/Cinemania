@@ -25,13 +25,15 @@ namespace Models
         [Column("categorie"), NotNull]
         public Categorie Categorie { get; private set; }
 
-        [Column("Synopsis")]
-        public string Synopsis { get
+        [Ignore]
+        public string Synopsis
+        {
+            get
             {
-                string path = "pack://application:,,,/Resources/Film/Synopsis/" + Id + ".txt";
+                string path = "pack://application:,,,/Resources/Film/Synopsis/" + Img + ".txt";
 
-                if (!File.Exists(path))
-                    return "ERROR";
+                //if (!File.Exists(path))
+                //    return "ERROR";
 
                 using (StreamReader film = File.OpenText(path))
                 {
@@ -49,7 +51,7 @@ namespace Models
             Img = img;
         }
 
-        public Film() {}
+        public Film() { }
 
         public override string ToString()
         {

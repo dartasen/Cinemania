@@ -12,8 +12,14 @@ namespace Views
 {
     public partial class FilmView : UserControl, ISwitch
     {
+        /// <summary>
+        /// Liste des films à afficher
+        /// </summary>
         public ObservableCollection<Film> ListeFilms { get; private set; }
 
+        /// <summary>
+        /// La listView renvoie le film selectionné sur cette propriété
+        /// </summary>
         private Film _selectedFilm;
         public Film SelectedFilm
         {
@@ -37,6 +43,7 @@ namespace Views
 
             ListeFilms = StockageBDD.GetFilms(cat);
 
+            //Si la catégorie ne contient aucun film, on affiche un message au lieu d'afficher une page vide
             if (cat != Categorie.DEFAUT)
             {
                 if (ListeFilms.Count() == 0)

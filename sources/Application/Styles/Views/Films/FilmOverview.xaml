@@ -76,7 +76,14 @@
             </Border>
 
             <Label FontSize="19" Margin="0,20,0,20" Foreground="Black" FontStyle="Italic" Content="Synopsis"/>
-            <Label Foreground="Black" Content="{Binding Synopsis}"/>
+            <Label Foreground="Black">
+                <Label.Resources>
+                    <model:IdToFilmSynopsisConverter x:Key="GetSynopsisPathConverter"/>
+                </Label.Resources>
+                <Label.Content>
+                    <Binding Path="Img" Converter="{StaticResource GetSynopsisPathConverter}"/>
+                </Label.Content>
+            </Label>
         </StackPanel>
     </DockPanel>
     

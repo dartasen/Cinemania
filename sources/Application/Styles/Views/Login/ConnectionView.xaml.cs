@@ -33,6 +33,7 @@ namespace Views
                 return;
             }
 
+            // Retourne l'utilisateur contenue dans la BDD, null sinon
             var user = StockageBDD.CheckUser(pseudo, mdp);
 
             if (user != null)

@@ -12,6 +12,10 @@ namespace Views
 
         public Control UC_Admin { get; private set; }
  
+        /// <summary>
+        /// La combobox de la vue nous renvoie un index sur cette propriété
+        /// en fonction de l'index une page est affichée
+        /// </summary>
         private int _selectedAction;
         public int SelectedAction
         {
@@ -44,6 +48,9 @@ namespace Views
             DataContext = this;
         }
 
+        /// <summary>
+        /// Fonction appellée quand on clique sur le bouton retour
+        /// </summary>
         private void Return_Button_Click(object sender, RoutedEventArgs e)
         {
             Switch(new FilmView(), false);

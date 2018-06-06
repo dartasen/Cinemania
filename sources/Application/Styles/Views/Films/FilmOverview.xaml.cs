@@ -2,29 +2,22 @@
 using Models;
 using System.Windows;
 using System.Windows.Controls;
+using System;
 
 namespace Views
 {
 
     public partial class FilmOverview : UserControl, ISwitch
     {
-        public Film CurrentFilm
-        {
-            get => (Film) GetValue(CurrentFilmProperty);
-            set => SetValue(CurrentFilmProperty, value);
-        }
-
-        public static readonly DependencyProperty CurrentFilmProperty =
-            DependencyProperty.Register("CurrentFilm", typeof(Film), typeof(FilmOverview), null);
-
         public FilmOverview(Film film)
         {
             InitializeComponent();
-            CurrentFilm = film;
-
-            DataContext = CurrentFilm;
+            DataContext = film ?? throw new ArgumentNullException("Le film à afficher est null :(");
         }
 
+        /// <summary>
+        /// Fonction appellée quand on clique sur le bouton retour
+        /// </summary>
         private void Return_Button_Click(object sender, RoutedEventArgs e)
         {
             Switch(new FilmView(), false);

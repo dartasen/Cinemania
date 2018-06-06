@@ -14,6 +14,7 @@ namespace Views
         {
             InitializeComponent();
 
+            // SI l'utilisateur est admin, on affiche le bouton d'administration
             if (MainView.CurrentUser.IsAdmin)
                 this.admin_Btn.Visibility = Visibility.Visible;
         }
@@ -23,6 +24,7 @@ namespace Views
         /// </summary>
         private void Logout_Click(object sender, RoutedEventArgs args)
         {
+            // Si l'utilisateur est admin, on empêche on visiteur de laisser la page admin ouverte
             if (MainView.CurrentUser.IsAdmin)
                 Switch(new FilmView(), false);
 

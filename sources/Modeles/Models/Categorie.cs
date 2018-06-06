@@ -1,5 +1,8 @@
 ﻿namespace Models
 { 
+    /// <summary>
+    /// Nous permet de définir ce que notre attribut contient en propriété
+    /// </summary>
     public class CategorieAttr : EnumAttr
     {
         public CategorieAttr(string img) => Img = img;

@@ -65,6 +65,7 @@
     <Compile Include="Events\UserChangedEvent.cs" />
     <Compile Include="Events\UserChangedEventArgs.cs" />
     <Compile Include="Film.cs" />
+    <Compile Include="IdToFilmSynopsisConverter.cs" />
     <Compile Include="StringToFilmImageConverter.cs" />
     <Compile Include="Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

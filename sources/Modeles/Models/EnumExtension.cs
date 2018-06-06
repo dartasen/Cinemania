@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /// <summary>
+    /// Permet de créer des attributes custom
+    /// </summary>
     [AttributeUsageAttribute(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
     public class EnumAttr : Attribute
     {
         public EnumAttr() { }
     }
 
+    /// <summary>
+    /// Classe statique qui étend les <see cref="Enum"/> et qui nous permettra de recevoir sous forme
+    /// de tableau les différentes propriétes de l'attributs
+    /// </summary>
     public static class EnumExtension
     {
         public static EnumAttr GetAttr(this Enum value)

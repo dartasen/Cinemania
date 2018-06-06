@@ -25,13 +25,17 @@ namespace Views
         {
             InitializeComponent();
 
+            //Instancie le stockage en SQLite
             StockageBDD.Init();
 
+            //Instancie la première page centrale
             UC_Main = new FilmView();
 
+            //Instancie le navigateur de vue
             ControlSwitcher.Main = this;
             DataContext = this;
 
+            //Instancie l'évenement pour le login
             UserChangedEvent.Instance.UserChanged += OnUserChanged;
         }
 
