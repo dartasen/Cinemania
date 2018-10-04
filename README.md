@@ -1,12 +1,12 @@
 # Cinemania
-Projet WPF de fin de période, Codé en .NET avec du XAML et du C#. Cinémania est une application qui reprend le concept d'allociné, c'est à dire qui permet de référencer et de consulter les films et séries sorties 
+>Projet WPF de fin de période, Codé en .NET avec du XAML et du C#. Cinémania est une application qui reprend le concept d'allociné, c'est à dire qui permet de référencer et de consulter les films et séries sorties 
 
 ## Fonctionnalités
-
-[ x ] Possibilité d'ajouter des films/séries et de pouvoir les consulter
-[ x ] Possibilité de se créer un compte pour pouvoir ajouter des films à ses favoris
-[ x ] Possibilité de consulter les films en fonction de la catégorie
-[ x ] ...
+- [x] Possibilité d'ajouter des films/séries et de pouvoir les consulter
+- [x] Possibilité de se créer un compte pour pouvoir ajouter des films à ses favoris
+- [x] Possibilité de consulter les films en fonction de la catégorie
+- [x] Possibilité de gérer les comptes et les films dans l'espace admin
+- [x] ...
 
 ## Paquet Nugget
 
