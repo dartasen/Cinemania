@@ -3,10 +3,10 @@ Projet WPF de fin de période, Codé en .NET avec du XAML et du C#. Cinémania e
 
 ## Fonctionnalités
 
-[x] Possibilité d'ajouter des films/séries et de pouvoir les consulter
-[x] Possibilité de se créer un compte pour pouvoir ajouter des films à ses favoris
-[x] Possibilité de consulter les films en fonction de la catégorie
-[x] ...
+[ x ] Possibilité d'ajouter des films/séries et de pouvoir les consulter
+[ x ] Possibilité de se créer un compte pour pouvoir ajouter des films à ses favoris
+[ x ] Possibilité de consulter les films en fonction de la catégorie
+[ x ] ...
 
 ## Paquet Nugget
 
